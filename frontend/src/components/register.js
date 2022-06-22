@@ -35,7 +35,7 @@ function register() {
               {/* <Form.Label>Phone Number</Form.Label> */}
               <Form.Control type="text" placeholder="Phone" />
             </Form.Group>
-            <center><p><a style={{ "marginLeft": "5%" }} href="http://localhost:3000/login">Already a user?</a><Button variant="primary" style={{ "marginLeft": "5%", "width": "30%" }} type="submit">
+            <center><p><a style={{ "marginLeft": "5%" }} href="login">Already a user?</a><Button variant="primary" style={{ "marginLeft": "5%", "width": "30%" }} type="submit">
               Register
             </Button></p></center>
           </Form></Col>

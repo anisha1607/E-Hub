@@ -24,7 +24,7 @@ function login() {
               {/* <Form.Label>Password</Form.Label> */}
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
-            <center><p><a style={{"marginLeft":"5%"}} href="http://localhost:3000/register">Don't have a user account?</a><Button variant="primary" style={{"marginLeft":"5%","width":"30%"}} type="submit">
+            <center><p><a style={{"marginLeft":"5%"}} href="register">Don't have a user account?</a><Button variant="primary" style={{"marginLeft":"5%","width":"30%"}} type="submit">
               Login
             </Button></p></center>
           </Form></Col>
