@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './navbar'
 import Footer from './footer'
-import { Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
+import { Button,Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
 function producttype() {
@@ -83,7 +83,7 @@ function producttype() {
         </Row>
       </Container> */}
       <CardGroup>
-        <Card>
+        {/* <Card>
           <Card.Img variant="top" src={laptop}/>
           <Card.Body>
             <Card.Title>Card title</Card.Title>
@@ -124,7 +124,63 @@ function producttype() {
               show that equal height action.
             </Card.Text>
           </Card.Body>
-        </Card>
+        </Card> */}
+        <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
+                  <Card.Img variant="top" src={laptop} />
+                  <Card.Body style={{ height: "200px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
+                    <Card.Title>Brand Name</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content.
+                    </Card.Text>
+                    <div className="product-actions">
+                      <Button variant="primary">Buy Now</Button>
+                      <Button variant="secondary">Add to cart</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+                <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
+                  <Card.Img variant="top" src={laptop} />
+                  <Card.Body style={{ height: "200px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
+                    <Card.Title>Brand Name</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content.
+                    </Card.Text>
+                    <div className="product-actions">
+                      <Button variant="primary">Buy Now</Button>
+                      <Button variant="secondary">Add to cart</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+                <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
+                  <Card.Img variant="top" src={laptop} />
+                  <Card.Body style={{ height: "200px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
+                    <Card.Title>Brand Name</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content.
+                    </Card.Text>
+                    <div className="product-actions">
+                      <Button variant="primary">Buy Now</Button>
+                      <Button variant="secondary">Add to cart</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+                <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
+                  <Card.Img variant="top" src={laptop} />
+                  <Card.Body style={{ height: "200px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
+                    <Card.Title>Brand Name</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the
+                      bulk of the card's content.
+                    </Card.Text>
+                    <div className="product-actions">
+                      <Button variant="primary">Buy Now</Button>
+                      <Button variant="secondary">Add to cart</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
       </CardGroup>
       <Footer />
     </div>
