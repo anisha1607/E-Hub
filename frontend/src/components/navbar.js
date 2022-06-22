@@ -6,7 +6,7 @@ import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl }
 function navbar() {
   return (
     <>
-      <Navbar fixed='top' bg="info" variant="dark" expand="lg" style={{ marginBottom: "2%" }}>
+      <Navbar  bg="info" variant="dark" expand="lg" style={{ marginBottom: "2%" }}>
         <Container>
           <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>E Hub</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -19,9 +19,9 @@ function navbar() {
 
 
               <NavDropdown title="Products" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Mobile Phones</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Tablets</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Laptop</NavDropdown.Item>
+                <NavDropdown.Item href="producttype">Mobile Phones</NavDropdown.Item>
+                <NavDropdown.Item href="producttype">Tablets</NavDropdown.Item>
+                <NavDropdown.Item href="producttype">Laptop</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="/about">About Us</Nav.Link>
