@@ -44,7 +44,7 @@ class CarouselSlider extends Component {
     };
     return (
       <div>
-        <h2> Responsive Product Carousel</h2>
+        <h2 style={{textAlign:"left", marginLeft:"60px", marginTop:"20px"}}>Trending Products</h2>
         <Slider {...settings}>
           {data.map((item) => {
           const { id, name, price, image } = item;
