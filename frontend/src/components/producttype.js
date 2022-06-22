@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './navbar'
 import Footer from './footer'
-import { Container, Row, Col, Image ,Card } from 'react-bootstrap'
+import { Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
 function producttype() {
@@ -24,24 +24,10 @@ function producttype() {
           </Col>
         </Row>
       </Container>
-      <Container>
+      {/* <Container>
         <Row>
           <Col>
             <Row xs={1} md={2} className="g-4">
-              {/* {Array.from({ length: 4 }).map((_, idx) => (
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))} */}
               <Col>
                   <Card style={{"margin":"2%"}}>
                     <Card.Img variant="top" src={laptop} />
@@ -95,7 +81,51 @@ function producttype() {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
+      <CardGroup>
+        <Card>
+          <Card.Img variant="top" src={laptop}/>
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+            <Card.Text>
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This content is a little bit longer.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+            <Card.Text>
+              This card has supporting text below as a natural lead-in to additional
+              content.{' '}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+            <Card.Text>
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This card has even longer content than the first to
+              show that equal height action.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+            <Card.Text>
+              This is a wider card with supporting text below as a natural lead-in to
+              additional content. This card has even longer content than the first to
+              show that equal height action.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </CardGroup>
       <Footer />
     </div>
   )
