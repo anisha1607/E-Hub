@@ -9,7 +9,7 @@ function register() {
     <div>
       <Container style={{ "margin": "1%" }}>
         <Row >
-          <Col sm={8} className="mw-80"><Image src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></Col>
+          <Col sm={8} className="mw-80"><center><Image style={{"height":"100","width":"auto"}} src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></center></Col>
           <Col sm={4}><Form className="mb-6">
             <center><h2>Register</h2></center>
             <Form.Group className="mb-3">
@@ -33,9 +33,9 @@ function register() {
             </Form.Group>
             <Form.Group className="mb-3">
               {/* <Form.Label>Phone Number</Form.Label> */}
-              <Form.Control type="number" placeholder="Phone" />
+              <Form.Control type="text" placeholder="Phone" />
             </Form.Group>
-            <center><p><a style={{"marginLeft":"5%"}} href="http://localhost:3000/login">Already a user?</a><Button variant="primary" style={{"marginLeft":"5%","width":"30%"}} type="submit">
+            <center><p><a style={{ "marginLeft": "5%" }} href="http://localhost:3000/login">Already a user?</a><Button variant="primary" style={{ "marginLeft": "5%", "width": "30%" }} type="submit">
               Register
             </Button></p></center>
           </Form></Col>
