@@ -5,6 +5,7 @@ import Login from './components/login'
 import Register from './components/register'
 import Cart from './components/cart'
 import Producttype from './components/producttype'
+import Product from './components/product'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="cart" element={ <Cart/> } />
           <Route path="login" element={ <Login/> } />
           <Route path="producttype" element={ <Producttype/>} />
+          <Route path="product" element={ <Product/>} />
         </Routes>
       </Router>
     </div>
