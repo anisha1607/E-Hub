@@ -1,14 +1,14 @@
 import React from 'react'
 import Navbar from './navbar'
-import { Button, Col, Row, Container } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 
-function increment() {
-  document.getElementById('demoInput').stepUp();
-}
-function decrement() {
-  document.getElementById('demoInput').stepDown();
-}
+// function increment() {
+//   document.getElementById('demoInput').stepUp();
+// }
+// function decrement() {
+//   document.getElementById('demoInput').stepDown();
+// }
 
 function cart() {
   return (

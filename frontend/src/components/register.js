@@ -9,7 +9,7 @@ function register() {
     <div>
       <Container style={{ "margin": "1%" }}>
         <Row >
-          <Col sm={8} className="mw-80"><center><Image style={{"height":"100","width":"auto"}} src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></center></Col>
+          <Col sm={8} className="mw-80"><center><a href="/"><Image style={{"height":"100","width":"auto"}} src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>
           <Col sm={4}><Form className="mb-6">
             <center><h2>Register</h2></center>
             <Form.Group className="mb-3">

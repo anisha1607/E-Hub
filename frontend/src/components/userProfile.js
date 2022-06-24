@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './navbar'
 import Footer from './footer'
-import { Button, Card, CardGroup, Col, Row } from 'react-bootstrap'
+import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './userProfile.css';
 
@@ -63,7 +63,7 @@ function ProfileScreen() {
             <hr/>
             <div class="row">
                 <div class="col-sm-12">
-                    <a class="btn btn-info " target="__blank" href="#">Edit</a>
+                    <a class="btn btn-info " target="__blank" href="useredit">Edit</a>
                 </div>
             </div>
           </Card.Body>
@@ -72,7 +72,7 @@ function ProfileScreen() {
     </Card>
       <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
       <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-        <Card.Title>Brand Name</Card.Title>
+        <Card.Title>Order History</Card.Title>
         <Card.Text>
           Some quick example text to build on the card title and make up the
           bulk of the card's content.

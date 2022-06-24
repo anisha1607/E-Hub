@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from '../../src/cart.jpg'
 import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
+import './navbar.css'
 
 
 function navbar() {
   return (
     <>
-      <Navbar  bg="info" variant="dark" expand="lg">
+      <Navbar bg="info" sticky variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>E Hub</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,17 +31,17 @@ function navbar() {
 
 
 
-            <Form className="d-flex" style={{ marginRight: "4px" }}>
+            <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
               <FormControl
                 type="search"
                 placeholder="Search"
-                className="me-2 w-100"
+                className="me-2 input-mysize"
                 aria-label="Search"
               />
-              <Button variant="outline-light" style={{ marginRight: "5px" }}>Search</Button>
+              <Button variant="outline-light" style={{ marginRight: "10px !important"}}>Search</Button>
             </Form>
 
-            <Button variant="light" href='/login' style={{ color: "#0dcaf0", marginRight: "5px" }}> Login / Sign Up</Button>
+            <Button className="login" variant="light" href='/login' style={{ color: "#0dcaf0"}}> Login / Sign Up</Button>
 
             {/* <Button style={{ color:  }} size='sm'>Login / Sign Up</Button> */}
 

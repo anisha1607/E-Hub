@@ -10,7 +10,7 @@ function login() {
     <>
       <Container style={{ "margin": "1%" }}>
         <Row>
-          <Col lg={8} className="mw-80"><center><Image src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></center></Col>
+          <Col lg={8} className="mw-80"><center><a href="/"><Image src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>
           <Col lg={4}><Form className="mb-6">
             <center><h2>Login</h2></center>
             <Form.Group className="mb-3">
