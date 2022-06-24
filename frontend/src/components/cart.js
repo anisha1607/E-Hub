@@ -49,7 +49,7 @@ function cart() {
                   <div className="ml-2"><span className="font-weight-bold d-block"><b style={{marginLeft:"5px"}}>Iphone 11</b></span><span className="spec" style={{marginLeft:"5px"}}>256GB, Navy Blue</span></div>
                 </div>
                 <div className="d-flex flex-row align-items-center">
-                  <input id='demoInput' type='number' min='1' max='100' value="1" />
+                  <input id='demoInput' type='number' min='1' max='100' placeholder='1' />
                   {/* <button onclick="increment()" style={{ marginRight: "2%", marginLeft: "2%" }}>+</button>
                   <button onclick="decrement()">-</button> */}
                 </div>
@@ -66,7 +66,7 @@ function cart() {
                   <div className="ml-2"><span className="font-weight-bold d-block"><b style={{marginLeft:"5px"}}>One pro 7T</b></span><span className="spec" style={{marginLeft:"5px"}}>256GB, Navy Blue</span></div>
                 </div>
                 <div className="d-flex flex-row align-items-center">
-                  <input id='demoInput' type='number' min='1' max='100' value="1" />
+                  <input id='demoInput' type='number' min='1' max='100' placeholder='1' />
                   {/* <button onclick="increment()" style={{ marginRight: "2%", marginLeft: "2%" }}>+</button>
                   <button onclick="decrement()">-</button> */}
                 </div>
@@ -83,7 +83,7 @@ function cart() {
                   <div className="ml-2" style={{ marginRight: "2px"}}><span className="font-weight-bold d-block"><b style={{marginLeft:"5px"}}>Samsung Galaxy</b></span><span className="spec" style={{marginLeft:"5px"}}>256GB, Navy Blue</span></div>
                 </div>
                 <div className="d-flex flex-row align-items-center">
-                  <input id='demoInput' type='number' min='1' max='100' value="1" />
+                  <input id='demoInput' type='number' min='1' max='100' placeholder='1' />
                   {/* <button onclick="increment()" style={{ marginRight: "2%", marginLeft: "2%" }}>+</button>
                   <button onclick="decrement()">-</button> */}
                 </div>
