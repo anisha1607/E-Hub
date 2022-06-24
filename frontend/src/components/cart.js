@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './navbar'
+import Footer from './footer'
 import { Button } from 'react-bootstrap';
 
 
@@ -16,7 +17,7 @@ function cart() {
 
     <Navbar />
 
-    <div style={{ marginTop: "2%" }}>
+    <div style={{ marginTop: "6%",marginBottom: "1%" }}>
       <div className="container mt-5 p-3 rounded cart" style={{ background: "#fff" }}>
         <div className="row no-gutters">
           <div className="col-md-8">
@@ -155,7 +156,7 @@ function cart() {
         </div>
       </div>
     </div>
-
+    <Footer/>
     </div>
   )
 }
