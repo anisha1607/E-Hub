@@ -6,13 +6,13 @@ import image3 from '../images/HomeImage3.jpg'
 
 function homeCarousel() {
     return (
-        <Carousel style={{marginTop: "5%"}}>
+        <Carousel>
             <Carousel.Item>
                 <img
                 className="d-block w-100"
                 src={image}
                 alt="First slide"
-                style ={{maxHeight: "100vh"}}
+                style ={{maxHeight: "90vh"}}
                 />
             </Carousel.Item>
             <Carousel.Item>
@@ -20,7 +20,7 @@ function homeCarousel() {
                 className="d-block w-100"
                 src={image2}
                 alt="Second slide"
-                style ={{maxHeight: "100vh"}}
+                style ={{maxHeight: "90vh"}}
                 />
             </Carousel.Item>
             <Carousel.Item>
@@ -28,7 +28,7 @@ function homeCarousel() {
                 className="d-block w-100"
                 src={image3}
                 alt="Third slide"
-                style ={{maxHeight: "100vh"}}
+                style ={{maxHeight: "90vh"}}
                 />
             </Carousel.Item>
         </Carousel>

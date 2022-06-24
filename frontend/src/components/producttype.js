@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './navbar'
 import Footer from './footer'
-import { Container, Row, Col, Image ,Card } from 'react-bootstrap'
+import { Button, Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
 function producttype() {
@@ -24,78 +24,64 @@ function producttype() {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col>
-            <Row xs={1} md={2} className="g-4">
-              {/* {Array.from({ length: 4 }).map((_, idx) => (
-                <Col>
-                  <Card>
-                    <Card.Img variant="top" src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))} */}
-              <Col>
-                  <Card style={{"margin":"2%"}}>
-                    <Card.Img variant="top" src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col>
-                  <Card style={{"margin":"2%"}}>
-                    <Card.Img variant="top" src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-            </Row>
-            <Row xs={1} md={2} className="g-4">
-              <Col>
-                  <Card style={{"margin":"2%","marginBottom":"4%"}}>
-                    <Card.Img variant="top" src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col>
-                  <Card style={{"margin":"2%","marginBottom":"4%"}}>
-                    <Card.Img variant="top"  src={laptop} />
-                    <Card.Body>
-                      <Card.Title>Card title</Card.Title>
-                      <Card.Text>
-                        This is a longer card with supporting text below as a natural
-                        lead-in to additional content. This content is a little bit longer.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+      <CardGroup>
+        <Card onClick={''} style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <Card.Title>Brand Name</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <div className="text-center"> 
+              <Button href="product" variant="primary">Show Product</Button>
+              {/* <Button variant="secondary">Add to cart</Button> */}
+            </div>
+          </Card.Body>
+        </Card>
+        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <Card.Title>Brand Name</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <div className="text-center"> 
+              <Button href="product" variant="primary">Show Product</Button>
+              {/* <Button variant="secondary">Add to cart</Button> */}
+            </div>
+          </Card.Body>
+        </Card>
+        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <Card.Title>Brand Name</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <div className="text-center"> 
+              <Button href="product" variant="primary">Show Product</Button>
+              {/* <Button variant="secondary">Add to cart</Button> */}
+            </div>
+          </Card.Body>
+        </Card>
+        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+          <Card.Img variant="top" src={laptop} />
+          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <Card.Title>Brand Name</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <div className="text-center"> 
+              <Button href="product" variant="primary">Show Product</Button>
+              {/* <Button variant="secondary">Add to cart</Button> */}
+            </div>
+          </Card.Body>
+        </Card>
+      </CardGroup>
       <Footer />
     </div>
   )
