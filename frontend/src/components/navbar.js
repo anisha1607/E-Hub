@@ -6,7 +6,7 @@ import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl }
 function navbar() {
   return (
     <>
-      <Navbar  bg="info" variant="dark" expand="lg" style={{ marginBottom: "2%" }}>
+      <Navbar  bg="info" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>E Hub</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
