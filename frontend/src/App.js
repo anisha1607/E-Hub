@@ -7,6 +7,7 @@ import Cart from './components/cart'
 import Producttype from './components/producttype'
 import Product from './components/product'
 import AboutUs from './components/aboutus'
+import User from './components/userProfile'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="producttype" element={ <Producttype/>} />
           <Route path="product" element={ <Product/>} />
           <Route path="aboutus" element={ <AboutUs/>} />
+          <Route path="user" element={ <User/>} />
         </Routes>
       </Router>
     </div>

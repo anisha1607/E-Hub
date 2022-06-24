@@ -8,7 +8,7 @@ function product() {
     return (
         <div>
             <Navbar />
-            <Container>
+            <Container style={{marginTop:"6%"}}>
                 <Row style={{ "marginBottom": "2%" }}>
                     <Col sm={8}>
                         <h1 style={{ "textAlign": "left" }}>HP Laptop</h1><br></br>
