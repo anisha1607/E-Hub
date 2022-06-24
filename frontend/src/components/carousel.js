@@ -43,8 +43,8 @@ class CarouselSlider extends Component {
       ]
     };
     return (
-      <div style={{width:"100%"}}>
-        <h2 style={{textAlign:"left", marginLeft:"60px", marginTop:"20px"}}>Trending Products</h2>
+      <div style={{backgroundImage: "linear-gradient(to right, #FFFFFF , #FAF9F6)",padding:"1%", marginBottom:"2%", marginTop:"2%"}}>
+        <h2 style={{textAlign:"left", marginLeft:"20px", marginTop:"2%"}}>Trending Products</h2>
         <Slider {...settings}>
           {data.map((item) => {
           const { id, name, price, image } = item;
@@ -58,8 +58,8 @@ class CarouselSlider extends Component {
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
                     <div className="product-actions">
-                      <Button variant="primary">{price}</Button>
-                      <Button variant="secondary" href="cart">Add to cart</Button>
+                      <h3>{price}</h3>
+                      <Button variant="warning" href="cart">Add to cart</Button>
                     </div>
                     </Card.Text>
                   </Card.Body>
