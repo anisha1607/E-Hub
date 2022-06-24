@@ -6,6 +6,7 @@ import Register from './components/register'
 import Cart from './components/cart'
 import Producttype from './components/producttype'
 import Product from './components/product'
+import AboutUs from './components/aboutus'
 import User from './components/userProfile'
 import UserEdit from './components/userProfileEdit'
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="login" element={ <Login/> } />
           <Route path="producttype" element={ <Producttype/>} />
           <Route path="product" element={ <Product/>} />
+          <Route path="aboutus" element={ <AboutUs/>} />
           <Route path="user" element={ <User/>} />
           <Route path="useredit" element={ <UserEdit/>} />
         </Routes>

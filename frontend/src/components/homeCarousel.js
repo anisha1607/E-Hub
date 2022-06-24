@@ -6,7 +6,7 @@ import image3 from '../images/HomeImage3.jpg'
 
 function homeCarousel() {
     return (
-        <Carousel>
+        <Carousel style={{marginTop:"5%"}}>
             <Carousel.Item>
                 <img
                 className="d-block w-100"

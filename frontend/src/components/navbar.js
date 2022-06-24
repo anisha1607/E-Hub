@@ -7,7 +7,7 @@ import './navbar.css'
 function navbar() {
   return (
     <>
-      <Navbar bg="info" sticky variant="dark" expand="lg">
+      <Navbar  bg="info"  variant="dark" expand="lg" fixed='top'>
         <Container>
           <Navbar.Brand href="/" style={{ fontWeight: "bold" }}>E Hub</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -17,15 +17,13 @@ function navbar() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-
-
               <NavDropdown title="Products" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="producttype">Mobile Phones</NavDropdown.Item>
                 <NavDropdown.Item href="producttype">Tablets</NavDropdown.Item>
                 <NavDropdown.Item href="producttype">Laptop</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link href="/about">About Us</Nav.Link>
+              <Nav.Link href="aboutus">About Us</Nav.Link>
 
             </Nav>
 
@@ -53,22 +51,20 @@ function navbar() {
 
 
               <a href='cart'>
-              <Image src={logo} style={{
-                width: "50px",
-                height: "50px",
-                // marginTop: "px",
-                borderRadius: "100px",
-                cursor: "pointer",
-                marginLeft: "5px"}} thumbnail  roundedCircle></Image> </a>
+                <Image src={logo} style={{
+                  width: "50px",
+                  height: "50px",
+                  // marginTop: "px",
+                  borderRadius: "100px",
+                  cursor: "pointer",
+                  marginLeft: "5px"
+                }} thumbnail roundedCircle></Image> </a>
 
-            {/* <Nav.Link href="/cart">Cart</Nav.Link> */}
-
-          </Nav>
-
-
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+              {/* <Nav.Link href="/cart">Cart</Nav.Link> */}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   )
 }
