@@ -5,6 +5,7 @@ import icon from '../images/icon.png'
 import Footer from './footer';
 
 function register() {
+  
   return (
     <div>
       <Container style={{ "margin": "1%" }}>
