@@ -12,7 +12,7 @@ function home() {
     <div>
         <Navbar/>
         {/* <img src={image} style={{marginTop:"5%", height: "80vh"}}/> */}
-        <HomeCarousel style={{marginTop:"6%"}}/>
+        <HomeCarousel />
         <CarouselSlider/>
             {/* <Button variant="primary">Button #1</Button>
             <Button variant="secondary" className="mx-2">Button #2</Button>
