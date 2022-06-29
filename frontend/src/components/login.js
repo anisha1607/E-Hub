@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Image ,Container,Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer';
 //import './login.css'
 import icon from '../images/icon.png'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function login() {
+const Login = () => {
+  //const navigate = useNavigate();
+  const [user,setUser] = useState({
+    email:"",
+    password:""
+  })
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setUser({
+        ...user,
+        [name]: value
+    })
+}
+
+const login = () => {
+    axios.post("http://localhost:9002/login", user)
+    .then(res => {
+        alert(res.data.message)
+        setUser(res.data.user)
+        //navigate('/');
+    })
+}
+
   return (
     <>
       <Container style={{ "margin": "1%" }}>
@@ -14,17 +39,12 @@ function login() {
           <Col lg={4}><Form className="mb-6">
             <center><h2>Login</h2></center>
             <Form.Group className="mb-3">
-              {/* <Form.Label>Email address</Form.Label> */}
-              <Form.Control type="email" placeholder="Enter email" />
-              {/* <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text> */}
+              <Form.Control type="email" name="email" value={user.email} onChange={handleChange} placeholder="Enter email" />
             </Form.Group>
             <Form.Group className="mb-3">
-              {/* <Form.Label>Password</Form.Label> */}
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
             </Form.Group>
-            <center><p><a style={{"marginLeft":"5%"}} href="register">Don't have a user account?</a><Button variant="primary" style={{"marginLeft":"5%","width":"30%"}} type="submit">
+            <center><p><a style={{"marginLeft":"5%"}} href="register">Don't have a user account?</a><Button onClick={login} variant="primary" style={{"marginLeft":"5%","width":"30%"}} type="submit">
               Login
             </Button></p></center>
           </Form></Col>
@@ -35,4 +55,4 @@ function login() {
   )
 }
 
-export default login
+export default Login
