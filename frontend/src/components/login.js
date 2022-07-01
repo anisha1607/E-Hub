@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { Button, Form, Image ,Container,Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer';
 //import './login.css'
 import icon from '../images/icon.png'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+//import {useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const createHistory = require("history").createBrowserHistory;
+
+const Login = ({setLoginUser}) => {
   //const navigate = useNavigate();
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+  const history = createHistory();
+>>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
   const [user,setUser] = useState({
     email:"",
     password:""
@@ -27,9 +33,18 @@ const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
         alert(res.data.message)
+<<<<<<< HEAD
         //setUser(res.data.user)
         //navigate('/');
         navigate("/home");
+=======
+        if(res.data.message!=="Password didn't match"){
+          setLoginUser(res.data.user)
+          history.push("/");
+          let pathUrl = window.location.href;
+          window.location.href = pathUrl;
+        }
+>>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
     })
 }
 

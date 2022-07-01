@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import { Card, Button } from "react-bootstrap";
-import data from  './data/shoes.json';
+import data from  './data/products.json';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -53,13 +53,13 @@ class CarouselSlider extends Component {
                 {/* <ProductCard imgSrc={slide.img} /> */}
                 {/* <img src={slide.img} alt={`slide${index}`} /> */}
                 <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
-                  <Card.Img variant="top" src={image} />
+                  <Card.Img style={{height: "300px"}} variant="top" src={image} />
                   <Card.Body style={{ height: "140px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
                     <div className="product-actions">
-                      <h3>{price}</h3>
-                      <Button variant="warning" href="cart">Add to cart</Button>
+                      <h3>&#x20b9;{price}</h3>
+                      <Button variant="warning" href="product">View Product</Button>
                     </div>
                     </Card.Text>
                   </Card.Body>
