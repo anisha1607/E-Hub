@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user,setUser] = useState({
     email:"",
     password:""
@@ -26,8 +27,9 @@ const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
         alert(res.data.message)
-        setUser(res.data.user)
+        //setUser(res.data.user)
         //navigate('/');
+        navigate("/home");
     })
 }
 

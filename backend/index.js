@@ -14,6 +14,17 @@ mongoose.connect("mongodb://localhost:27017/demoEhub", {
     console.log("DB connected")
 })
 
+//mongodb+srv://rohit:<password>@cluster0.t5i0ioq.mongodb.net/?retryWrites=true&w=majority
+
+//const DB="mongodb+srv://rohit:rohit@cluster0.t5i0ioq.mongodb.net/EHub?retryWrites=true&w=majority";
+// const DB="mongodb://rohit:rohit@mongodb/EHub?directConnection=true";
+
+
+// mongoose.connect(DB, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// }).then(() => {
+//     console.log("DB connected");}).catch((err)=>console.log(err));
 
 const userSchema = new mongoose.Schema({
     name: String,
