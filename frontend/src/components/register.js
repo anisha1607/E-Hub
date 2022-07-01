@@ -4,11 +4,13 @@ import { Button, Form, Image, Container, Row, Col } from 'react-bootstrap'
 import icon from '../images/icon.png'
 import Footer from './footer';
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+//import { useNavigate } from "react-router-dom"
 
+const createHistory = require("history").createBrowserHistory;
 
 const Register = () => {
-  // const navigate = useNavigate()
+  const history = createHistory();
+  //const navigate = useNavigate()
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -27,11 +29,15 @@ const Register = () => {
 
   const register = () => {
     const { name, email, password, confirmPassword, phone} = user
-    if (name && email && password && (password === confirmPassword) && (phone!="")) {
+    if (name && email && password && (password === confirmPassword) && (phone!=="")) {
       axios.post("http://localhost:9002/register", user)
         .then(res => {
           alert(res.data.message)
-          //navigate("login")
+          //print(res.data.user);
+            //setLoginUser(res.data.user)
+            history.push("login");
+            let pathUrl = window.location.href;
+            window.location.href = pathUrl;
         })
     } else {
       alert("invalid input")
