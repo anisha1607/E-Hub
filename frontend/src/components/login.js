@@ -11,11 +11,7 @@ const createHistory = require("history").createBrowserHistory;
 
 const Login = ({setLoginUser}) => {
   //const navigate = useNavigate();
-<<<<<<< HEAD
-  const navigate = useNavigate();
-=======
   const history = createHistory();
->>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
   const [user,setUser] = useState({
     email:"",
     password:""
@@ -33,18 +29,15 @@ const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
         alert(res.data.message)
-<<<<<<< HEAD
         //setUser(res.data.user)
         //navigate('/');
-        navigate("/home");
-=======
+        // navigate("/home");
         if(res.data.message!=="Password didn't match"){
           setLoginUser(res.data.user)
           history.push("/");
           let pathUrl = window.location.href;
           window.location.href = pathUrl;
         }
->>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
     })
 }
 

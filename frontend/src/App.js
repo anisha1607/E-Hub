@@ -1,8 +1,8 @@
 import {Routes, Route, BrowserRouter as Router} from "react-router-dom";
 import './App.css';
 import Home from './components/home'
-import Login from './components/Login'
-import Register from './components/Register'
+import Login from './components/login'
+import Register from './components/register'
 import Cart from './components/cart'
 import Producttype from './components/producttype'
 import Product from './components/product'
@@ -16,17 +16,6 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-<<<<<<< HEAD
-          <Route exact path="/" element={ <Home/> } />
-          <Route path="/register" element={ <Register/> } />
-          <Route path="/cart" element={ <Cart/> } />
-          <Route path="/login" element={ <Login/> } />
-          <Route path="/producttype" element={ <Producttype/>} />
-          <Route path="/product" element={ <Product/>} />
-          <Route path="/aboutus" element={ <AboutUs/>} />
-          <Route path="//user" element={ <User/>} />
-          <Route path="/useredit" element={ <UserEdit/>} />
-=======
           <Route exact path="/" element={ (user && user.id) ? <User setLoginUser={setLoginUser}/> : <Home setLoginUser={setLoginUser}/> } />
           <Route path="register" element={ <Register/> } />
           <Route path="cart" element={ <Cart/> } />
@@ -36,7 +25,6 @@ function App() {
           <Route path="aboutus" element={ <AboutUs/>} />
           <Route path="user" element={ <User/>} />
           <Route path="useredit" element={ <UserEdit/>} />
->>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
         </Routes>
       </Router>
     </div>
