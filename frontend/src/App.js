@@ -11,32 +11,27 @@ import User from './components/userProfile'
 import UserEdit from './components/userProfileEdit'
 import {useState} from 'react'
 function App() {
-  const [ user, setLoginUser] = useState({})
+  const [ user, setLoginUser] = useState({
+    name:"Rahul",
+    phone:"5675675678",
+    email:"ladi.rahul@gmail.com",
+    password:"",
+    confirmpassword:""
+
+  })
   return (
     <div className="App">
       <Router>
         <Routes>
-<<<<<<< HEAD
-          <Route exact path="/" element={ <Home/> } />
-          <Route path="/register" element={ <Register/> } />
-          <Route path="/cart" element={ <Cart/> } />
-          <Route path="/login" element={ <Login/> } />
-          <Route path="/producttype" element={ <Producttype/>} />
-          <Route path="/product" element={ <Product/>} />
-          <Route path="/aboutus" element={ <AboutUs/>} />
-          <Route path="//user" element={ <User/>} />
-          <Route path="/useredit" element={ <UserEdit/>} />
-=======
-          <Route exact path="/" element={ (user && user.id) ? <User setLoginUser={setLoginUser}/> : <Home setLoginUser={setLoginUser}/> } />
-          <Route path="register" element={ <Register/> } />
+          <Route exact path="/" element={ (user && user._id) ? <User user={user}/> : <Home setLoginUser={setLoginUser}/> } />
+          <Route path="register" element={ <Register setLoginUser={setLoginUser}/> } />
           <Route path="cart" element={ <Cart/> } />
           <Route path="login" element={ <Login setLoginUser={setLoginUser}/> } />
           <Route path="producttype" element={ <Producttype/>} />
           <Route path="product" element={ <Product/>} />
           <Route path="aboutus" element={ <AboutUs/>} />
-          <Route path="user" element={ <User/>} />
-          <Route path="useredit" element={ <UserEdit/>} />
->>>>>>> bb77f1b72efc45cdaab1090afcc17acb23c20b0b
+          <Route path="user" element={ <User user={user}/>} />
+          <Route path="useredit" element={ <UserEdit user={user}/>} />
         </Routes>
       </Router>
     </div>
