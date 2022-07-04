@@ -9,7 +9,8 @@ import axios from 'axios';
 
 const createHistory = require("history").createBrowserHistory;
 
-function Login({setLoginUser}){
+const Login = ({setLoginUser}) => {
+  //const navigate = useNavigate();
   const history = createHistory();
   const [user,setUser] = useState({
     email:"",
@@ -27,14 +28,7 @@ function Login({setLoginUser}){
 const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
-<<<<<<< HEAD
-        alert(res.data.user._id)
-=======
         alert(res.data.message)
-        //setUser(res.data.user)
-        //navigate('/');
-        // navigate("/home");
->>>>>>> 169970a46619d003e65e58a2a266db86d970f8ff
         if(res.data.message!=="Password didn't match"){
           setLoginUser(res.data.user)
           history.push("/");
