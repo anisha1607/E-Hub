@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useState,useEffect } from "react";
 import Slider from "react-slick";
 import { Card, Button } from "react-bootstrap";
 import data from  './data/products.json';
@@ -6,8 +6,26 @@ import data from  './data/products.json';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.css";
-class CarouselSlider extends Component {
-  render() {
+import axios from "axios";
+
+
+const CarouselSlider = () =>{
+    const [data1,setData]=useState();
+    // axios.post("http://localhost:9002/homecarousel",{})
+    //   .then(res=>{
+    //     setData(res.data,[]);
+    //     alert(res.data[0].id);
+    //   })
+    const sendPostRequest = async () => {
+        try {
+            const resp = await axios.post("http://localhost:9002/homecarousel",{});
+            setData(resp.data,[]);
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    };
+    sendPostRequest();
     var settings = {
       dots: false,
       infinite: true,
@@ -42,6 +60,14 @@ class CarouselSlider extends Component {
         }
       ]
     };
+    //console.log(data);
+    //var data;
+    // axios.post("http://localhost:9002/homecarousel",{})
+    // .then(res=>{
+    //   data=res.data;
+    //   console.log(res.data);
+    //   alert(res.data[0]);
+    // })
     return (
       <div style={{backgroundImage: "linear-gradient(to right, #FFFFFF , #FAF9F6)",padding:"1%", marginBottom:"2%", marginTop:"2%"}}>
         <h2 style={{textAlign:"left", marginLeft:"20px", marginTop:"2%"}}>Trending Products</h2>
@@ -69,8 +95,10 @@ class CarouselSlider extends Component {
           })}
         </Slider>
       </div>
+    //   <div>
+
+    //   </div>
     );
-  }
 }
 
 export default CarouselSlider;

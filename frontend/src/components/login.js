@@ -7,10 +7,12 @@ import icon from '../images/icon.png'
 import axios from 'axios';
 //import {useNavigate } from 'react-router-dom';
 
+import {useNavigate } from "react-router-dom";
+
 const createHistory = require("history").createBrowserHistory;
 
 const Login = ({setLoginUser}) => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const history = createHistory();
   const [user,setUser] = useState({
     email:"",
@@ -34,6 +36,7 @@ const login = () => {
           history.push("/");
           let pathUrl = window.location.href;
           window.location.href = pathUrl;
+          //navigate("/");
         }
     })
 }

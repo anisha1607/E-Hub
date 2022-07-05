@@ -24,7 +24,21 @@ const userSchema = new mongoose.Schema({
     phone : String
 })
 
+const productSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    brand: String,
+    price : String,
+    colour: String,
+    screenSize: String,
+    resolution: String,
+    refreshRate : String,
+    weight: String,
+    image: String
+})
+
 const User = new mongoose.model("User", userSchema)
+const Product = new mongoose.model("Product", productSchema)
 
 //Routes
 app.post("/login", (req, res)=> {
@@ -90,6 +104,18 @@ app.post("/useredit", (req, res)=> {
     //         console.log("record deleted");
     //     }
     // })
+})
+
+app.post("/homecarousel", (req, res)=> {
+    Product.find(req,(err,product) =>{
+        if(!err){
+            res.send(product);
+            //console.log(product);
+        }
+        else{
+            console.log("product not found");
+        }
+    })
 })
 
 
