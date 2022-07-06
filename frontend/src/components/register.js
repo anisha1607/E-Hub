@@ -19,6 +19,10 @@ function Register({setLoginUser}){
     phone: "",
   })
 
+  const urlSubmit = (event) => {
+    event.preventDefault();
+  }
+
   const handleChange = e => {
     const { name, value } = e.target
     setUser({
@@ -51,7 +55,8 @@ function Register({setLoginUser}){
       <Container style={{ "margin": "1%" }}>
         <Row >
           <Col sm={8} className="mw-80"><center><a href="/"><Image style={{ "height": "100", "width": "auto" }} src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>
-          <Col sm={4}><Form className="mb-6">
+          <Col sm={4}>
+            <Form className="mb-6"  onSubmit={urlSubmit} >
             <center><h2>Register</h2></center>
             <Form.Group className="mb-3">
               <Form.Control type="email" name="email" value={user.email} onChange={handleChange} placeholder="Enter email" />

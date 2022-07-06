@@ -46,7 +46,7 @@ function App() {
           <Route path="product" element={ <Product user={user}/>} />
           <Route path="aboutus" element={ <AboutUs/>} />
           <Route path="user" element={ (user) ? <User user={user}/> : <Home/> } />
-          <Route path="useredit" element={ <UserEdit/>} />
+          <Route path="useredit" element={ <UserEdit user={user} />} />
         </Routes>
       </Router>
     </div>

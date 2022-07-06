@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './navbar'
+import Navbar from './navbarLogged'
 import Footer from './footer'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -40,7 +40,7 @@ function userProfile({ user }) {
                     <h6 class="mb-0">Phone</h6>
                   </div>
                   <div class="col-sm-9 text-secondary">
-                    01125694234
+                    {user.phone}
                   </div>
                 </div>
                 <hr />

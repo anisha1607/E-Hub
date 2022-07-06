@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import Navbar from './navbar'
+import Navbar from './navbarLogged'
 import Footer from './footer'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,11 +7,18 @@ import './userProfile.css';
 import userProfile from './userProfile';
 import axios from 'axios';
 
+const createHistory = require("history").createBrowserHistory;
+
 function ProfileScreenEdit(props) {
+
+	const history = createHistory();
+
+	console.log(JSON.stringify(props.user))
+
 	const [user, setUser] = useState({
-		email: "",
-		phone:"",
-		name:"",
+		email: props.user.email,
+		phone:props.user.phone,
+		name:props.user.phone,
 		password:"",
 		confirmpassword:""
 	})
@@ -28,6 +35,11 @@ function ProfileScreenEdit(props) {
 		  axios.post("http://localhost:9002/useredit", user)
 			.then(res => {
 			  alert(res.data.message)
+			  localStorage.setItem("user", JSON.stringify(res.data.user));
+			  history.push("/user");
+		      let pathUrl = window.location.href;
+			  window.location.href = pathUrl;
+			//   console.log(history)
 			})
 		} else {
 		  alert("Invalid Input")
@@ -52,7 +64,7 @@ function ProfileScreenEdit(props) {
 										</div>
 										<div class="col-sm-9 text-secondary">
 										{/* readonly  */}
-											<input type="text" placeholder={props.user.email} class="form-control" name="email" value={user.email} onChange={handleChange} />
+											<input type="text" placeholder={props.user.email} class="form-control" name="email" defaultValue={props.user.email} readOnly />
 										</div>
 									</div>
 									<div class="row mb-3">
@@ -60,7 +72,7 @@ function ProfileScreenEdit(props) {
 											<h6 class="mb-0">Full Name</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="text" class="form-control" placeholder={props.user.name} name="name" value={user.name}   onChange={handleChange}/>
+											<input type="text" class="form-control" placeholder={props.user.name} name="name" defaultValue={props.user.name} onChange={handleChange}/>
 										</div>
 									</div>
 									<div class="row mb-3">
@@ -68,7 +80,7 @@ function ProfileScreenEdit(props) {
 											<h6 class="mb-0">Phone</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="text" class="form-control" placeholder={props.user.phone} name="phone" value={user.phone}  onChange={handleChange} />
+											<input type="text" class="form-control" placeholder={props.user.phone} name="phone" defaultValue={props.user.phone}  onChange={handleChange} />
 										</div>
 									</div>
 									<div class="row mb-3">
@@ -76,7 +88,7 @@ function ProfileScreenEdit(props) {
 											<h6 class="mb-0">Password</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="text" class="form-control" placeholder="password" name="password" value={user.password}  onChange={handleChange} />
+											<input type="text" class="form-control" placeholder="password" name="password" onChange={handleChange} />
 										</div>
 									</div>
 									<div class="row mb-3">
@@ -84,7 +96,7 @@ function ProfileScreenEdit(props) {
 											<h6 class="mb-0">Confirm Password</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="text" class="form-control" placeholder="confirmpassword" name="confirmpassword" value={user.confirmpassword}  onChange={handleChange} />
+											<input type="text" class="form-control" placeholder="confirmpassword" name="confirmpassword" onChange={handleChange} />
 										</div>
 									</div>
 									{/* <div class="row mb-3">
