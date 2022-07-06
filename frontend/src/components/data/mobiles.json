@@ -47,5 +47,17 @@
         "refreshRate": "60Hz",
         "weight": "141 g",
         "image": "https://m.media-amazon.com/images/I/71X6mnUDSzL._SX679_.jpg"
+      },
+      {
+        "id": "94313731",
+        "name": "Redmi Note 11" ,
+        "brand": "Redmi",
+        "price": "17,999",
+        "colour": "Black",
+        "screenSize": "6.43 inches",
+        "resolution": "1080x2400 pixels",
+        "refreshRate": "90Hz",
+        "weight": "179 g",
+        "image": "https://m.media-amazon.com/images/I/81zLNgcvlaL._SX679_.jpg"
       }
 ]    

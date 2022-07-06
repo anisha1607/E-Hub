@@ -17,7 +17,7 @@ function ProfileScreenEdit(props) {
 	const [user, setUser] = useState({
 		email: props.user.email,
 		phone:props.user.phone,
-		name:props.user.phone,
+		name:props.user.name,
 		password:"",
 		confirmpassword:""
 	})
@@ -30,7 +30,7 @@ function ProfileScreenEdit(props) {
 	}
 	const useredit = () => {
 		const { name, email, phone,password,confirmpassword} = user
-		if ((name!=="")&&(phone!=="")&&(confirmpassword==password&&(email!=""))) {
+		if ((name!=="")&&(phone!=="")&&(confirmpassword==password)&&(email!="")) {
 		  axios.post("http://localhost:9002/useredit", user)
 			.then(res => {
 			  alert(res.data.message)
@@ -95,7 +95,7 @@ function ProfileScreenEdit(props) {
 											<h6 class="mb-0">Confirm Password</h6>
 										</div>
 										<div class="col-sm-9 text-secondary">
-											<input type="text" class="form-control" placeholder="confirmpassword" name="confirmpassword" onChange={handleChange} />
+											<input type="text" class="form-control" placeholder="confirm password" name="confirmpassword" onChange={handleChange} />
 										</div>
 									</div>
 									{/* <div class="row mb-3">

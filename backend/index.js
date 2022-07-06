@@ -91,7 +91,7 @@ app.post("/useredit", (req, res)=> {
                 if(err) {
                     res.send(err)
                 } else {
-                    res.send( { message: "Successfully Updated details!"}, user: user)
+                    res.send( { message: "Successfully Updated details!", user: user})
                 }
             })
         }

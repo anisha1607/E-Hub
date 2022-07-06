@@ -46,5 +46,17 @@
         "refreshRate": "60Hz",
         "weight": "7 kg",
         "image": "https://m.media-amazon.com/images/I/71YNkiYskUL._SX679_.jpg"
+      },
+      {
+        "id": "94672705",
+        "name": "Redmi Android 11 Series HD Ready Smart LED TV" ,
+        "brand": "Redmi",
+        "price": "24,999",
+        "colour": "Black",
+        "screenSize": "32 inches",
+        "resolution": "1366x768 pixels",
+        "refreshRate": "60Hz",
+        "weight": "5 kg",
+        "image": "https://m.media-amazon.com/images/I/71L-lTQnJiL._SX679_.jpg"
       }
 ]
