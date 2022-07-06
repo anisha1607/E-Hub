@@ -10,7 +10,6 @@ import axios from 'axios';
 const createHistory = require("history").createBrowserHistory;
 
 const Login = ({setLoginUser}) => {
-  //const navigate = useNavigate();
   const history = createHistory();
   const [user,setUser] = useState({
     email:"",
@@ -30,7 +29,7 @@ const login = () => {
     .then(res => {
         alert(res.data.message)
         // console.log(res.data);
-        if(res.data.message!=="Password didn't match"){
+        if(res.data.message!=="Password didn't match" && res.data.message!=="User not registered" ){
           // setLoginUser(res.data.user)
           localStorage.setItem("user", JSON.stringify(res.data.user));
           history.push("/");

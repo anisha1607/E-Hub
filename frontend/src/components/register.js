@@ -8,7 +8,7 @@ import axios from "axios"
 
 const createHistory = require("history").createBrowserHistory;
 
-const Register = () => {
+function Register({setLoginUser}){
   const history = createHistory();
   //const navigate = useNavigate()
   const [user, setUser] = useState({
@@ -35,7 +35,8 @@ const Register = () => {
           alert(res.data.message)
           //print(res.data.user);
             //setLoginUser(res.data.user)
-            history.push("login");
+            setLoginUser(res.data.user)
+            history.push("/");
             let pathUrl = window.location.href;
             window.location.href = pathUrl;
         })

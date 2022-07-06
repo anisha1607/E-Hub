@@ -32,19 +32,6 @@ function cart() {
 
               <div className="d-flex justify-content-between"><span>You have 4 items in your cart</span></div>
 
-
-              {/* <div className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                <div className="d-flex flex-row"><img className="rounded fluid" src="https://i.imgur.com/QRwjbm5.jpg" width="40" />
-                  <div><span className="font-weight-bold d-block"> <b>Iphone 11 pro</b></span><span className="spec">256GB, Navy Blue</span></div>
-                </div>
-                <div className="d-flex flex-row align-items-center">
-                  <span className="d-block">2</span>
-                  <span className="d-block ml-5 font-weight-bold">Rs 70000</span>
-                  <i className="fa fa-trash-o ml-3 text-black-50"></i>
-                </div>
-              </div> */}
-
-
               <div className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                 <div className="d-flex flex-row"><img className="rounded fluid" src="https://i.imgur.com/QRwjbm5.jpg" width="40" />
                   <div className="ml-2"><span className="font-weight-bold d-block"><b style={{marginLeft:"5px"}}>Iphone 11</b></span><span className="spec" style={{marginLeft:"5px"}}>256GB, Navy Blue</span></div>

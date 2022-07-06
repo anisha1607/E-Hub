@@ -7,6 +7,7 @@ import HomeCarousel from './homeCarousel';
 // import image from '../images/HomeImage.jpg'
 
 function home() {
+  
   return (
     <div>
         <Navbar/>

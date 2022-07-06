@@ -6,6 +6,15 @@ import { Button, Container, Row, Col, Image, Card, CardGroup } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
 function product(props) {
+    const getProductClickedFromLocalStorage = () =>{
+        try{
+            return JSON.parse(localStorage.getItem('productClicked')||'');
+        }
+        catch(err){
+            return "productNotClicked";
+        }
+    }
+    const productClicked=getProductClickedFromLocalStorage();
     if(props.user){
         return (
             <div>
@@ -13,20 +22,22 @@ function product(props) {
                 <Container style={{marginTop:"6%"}}>
                     <Row style={{ "marginBottom": "2%" }}>
                         <Col sm={8}>
-                            <h1 style={{ "textAlign": "left" }}>HP Laptop</h1><br></br>
+                            <h1 style={{ "textAlign": "left" }}>{productClicked.name}</h1><br></br>
                             <h5 style={{ "textAlign": "justify" }}>
                                 <ul>
-                                    <li>CPU: 11th Generation Intel Core i5 or i7 processor with 4 cores.</li>
-                                    <li>GPU: Intel Iris Xe Graphics.</li>
-                                    <li>Memory: 16GB RAM up to 32GB.</li>
-                                    <li>Display: 13.3-inch diagonal BrightView LED FHD touchscreen with Corning® Gorilla® Glass display.</li>
-                                    <li>Battery life: Starting at 24.5 hours.</li>
+                                    <li><h5>Price : {productClicked.price}</h5></li>
+                                    <li><h5>Brand  : {productClicked.brand}</h5></li>
+                                    <li><h5>Colour : {productClicked.colour}</h5></li>
+                                    <li><h5>screen Size : {productClicked.screenSize}</h5></li>
+                                    <li><h5>Resolution : {productClicked.resolution}</h5></li>
+                                    <li><h5>Refresh Rate: {productClicked.refreshRate}</h5></li>
+                                    <li><h5>Weight: {productClicked.weight}</h5></li>
                                 </ul>
                             </h5>
                         </Col>
-                        <Col sm={4} style={{ "marginTop": "6%" }}>
+                        <Col sm={4} style={{marginTop:"3%"}}>
                             <h1 style={{ "textAlign": "left" }}></h1>
-                            <center><Image src={laptop} class="rounded mx-auto d-block" alt="Online image"></Image></center>
+                            <center><Image src={productClicked.image} style={{width:"75%",height:"75%"}} class="rounded mx-auto d-block" alt="Online image"></Image></center>
                         </Col>
                     </Row>
                     <Row>
@@ -42,27 +53,28 @@ function product(props) {
             </div>
         )
     }
-    
     return (
         <div>
             <Navbar />
             <Container style={{marginTop:"6%"}}>
                 <Row style={{ "marginBottom": "2%" }}>
                     <Col sm={8}>
-                        <h1 style={{ "textAlign": "left" }}>HP Laptop</h1><br></br>
+                        <h1 style={{ "textAlign": "left" }}>{productClicked.name}</h1><br></br>
                         <h5 style={{ "textAlign": "justify" }}>
                             <ul>
-                                <li>CPU: 11th Generation Intel Core i5 or i7 processor with 4 cores.</li>
-                                <li>GPU: Intel Iris Xe Graphics.</li>
-                                <li>Memory: 16GB RAM up to 32GB.</li>
-                                <li>Display: 13.3-inch diagonal BrightView LED FHD touchscreen with Corning® Gorilla® Glass display.</li>
-                                <li>Battery life: Starting at 24.5 hours.</li>
+                                <li><h5>Price : {productClicked.price}</h5></li>
+                                <li><h5>Brand  : {productClicked.brand}</h5></li>
+                                <li><h5>Colour : {productClicked.colour}</h5></li>
+                                <li><h5>screen Size : {productClicked.screenSize}</h5></li>
+                                <li><h5>Resolution : {productClicked.resolution}</h5></li>
+                                <li><h5>Refresh Rate: {productClicked.refreshRate}</h5></li>
+                                <li><h5>Weight: {productClicked.weight}</h5></li>
                             </ul>
                         </h5>
                     </Col>
-                    <Col sm={4} style={{ "marginTop": "6%" }}>
+                    <Col sm={4} style={{marginTop:"3%"}}>
                         <h1 style={{ "textAlign": "left" }}></h1>
-                        <center><Image src={laptop} class="rounded mx-auto d-block" alt="Online image"></Image></center>
+                        <center><Image src={productClicked.image} style={{width:"75%",height:"75%"}} class="rounded mx-auto d-block" alt="Online image"></Image></center>
                     </Col>
                 </Row>
                 <Row>
@@ -77,6 +89,7 @@ function product(props) {
             <Footer />
         </div>
     )
+    
 }
 
 export default product

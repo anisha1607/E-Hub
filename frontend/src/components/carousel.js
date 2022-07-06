@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useState,useEffect } from "react";
 import Slider from "react-slick";
 import { Card, Button } from "react-bootstrap";
 import data from  './data/products.json';
@@ -6,8 +6,35 @@ import data from  './data/products.json';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.css";
-class CarouselSlider extends Component {
-  render() {
+import axios from "axios";
+
+
+const createHistory = require("history").createBrowserHistory;
+
+const CarouselSlider = () =>{
+    const [data1,setData]=useState();
+    const history = createHistory();
+    function clickMe(item){
+      // console.log(item['item'].name);
+      // alert(item['item'].name);
+      localStorage.setItem("productClicked",JSON.stringify(item['item']));
+      history.push("product");
+      let pathUrl = window.location.href;
+      window.location.href = pathUrl;
+    }
+    
+    //const clickMe = value => alert(value.name);
+
+    const sendPostRequest = async () => {
+        try {
+            const resp = await axios.post("http://localhost:9002/homecarousel",{});
+            setData(resp.data,[]);
+        } catch (err) {
+            // Handle Error Here
+            console.error(err);
+        }
+    };
+    sendPostRequest();
     var settings = {
       dots: false,
       infinite: true,
@@ -42,6 +69,14 @@ class CarouselSlider extends Component {
         }
       ]
     };
+    //console.log(data);
+    //var data;
+    // axios.post("http://localhost:9002/homecarousel",{})
+    // .then(res=>{
+    //   data=res.data;
+    //   console.log(res.data);
+    //   alert(res.data[0]);
+    // })
     return (
       <div style={{backgroundImage: "linear-gradient(to right, #FFFFFF , #FAF9F6)",padding:"1%", marginBottom:"2%", marginTop:"2%"}}>
         <h2 style={{textAlign:"left", marginLeft:"20px", marginTop:"2%"}}>Trending Products</h2>
@@ -59,7 +94,8 @@ class CarouselSlider extends Component {
                     <Card.Text>
                     <div className="product-actions">
                       <h3>&#x20b9;{price}</h3>
-                      <Button variant="warning" href="product">View Product</Button>
+                      <Button variant="warning" onClick={()=>clickMe({item})}>View Product</Button>
+                      {/* <Button variant="warning" href="product">View Product</Button> */}
                     </div>
                     </Card.Text>
                   </Card.Body>
@@ -69,8 +105,10 @@ class CarouselSlider extends Component {
           })}
         </Slider>
       </div>
+    //   <div>
+
+    //   </div>
     );
-  }
 }
 
 export default CarouselSlider;
