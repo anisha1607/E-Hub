@@ -1,0 +1,50 @@
+[
+    {
+        "id": "94672705",
+        "name": "Redmi Android 11 Series HD Ready Smart LED TV" ,
+        "brand": "Redmi",
+        "price": "24,999",
+        "colour": "Black",
+        "screenSize": "32 inches",
+        "resolution": "1366x768 pixels",
+        "refreshRate": "60Hz",
+        "weight": "5 kg",
+        "image": "https://m.media-amazon.com/images/I/71L-lTQnJiL._SX679_.jpg"
+      },
+      {
+        "id": "92456602",
+        "name": "Samsung Wondertainment Series HD Ready LED Smart TV" ,
+        "brand": "Samsung",
+        "price": "22,900",
+        "colour": "Glossy Black",
+        "screenSize": "32 inches",
+        "resolution": "1366 x 768 pixels",
+        "refreshRate": "60Hz",
+        "weight": "4.25 kg",
+        "image": "https://m.media-amazon.com/images/I/7160TtJzTWL._SX679_.jpg"
+      },
+      {
+        "id": "94461431",
+        "name": "Mi Horizon Edition Full HD Android LED TV 4A" ,
+        "brand": "MI",
+        "price": "29,999",
+        "colour": "Black",
+        "screenSize": "40 inches",
+        "resolution": "1920x1080 pixels",
+        "refreshRate": "60Hz",
+        "weight": "6.25 kg",
+        "image": "https://m.media-amazon.com/images/I/71k7M05go-L._SX679_.jpg"
+      },
+      {
+        "id": "93227802",
+        "name": "Vu Premium 4K Series Smart Android LED TV" ,
+        "brand": "VU",
+        "price": "45,000",
+        "colour": "Grey",
+        "screenSize": "50 inches",
+        "resolution": "3840x2160 pixels",
+        "refreshRate": "60Hz",
+        "weight": "7 kg",
+        "image": "https://m.media-amazon.com/images/I/71YNkiYskUL._SX679_.jpg"
+      }
+]

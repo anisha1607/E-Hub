@@ -41,15 +41,7 @@ function navbar() {
 
             <Button className="login" variant="light" href='/login' style={{ color: "#0dcaf0"}}> Login / Sign Up</Button>
 
-            {/* <Button style={{ color:  }} size='sm'>Login / Sign Up</Button> */}
-
-            {/* <Nav.Link href="/login" style={{marginLeft:"2px"}}>Login/Sign Up</Nav.Link> */}
-
             <Nav>
-
-              {/* <a class="navbar-brand" href=""></a> */}
-
-
               <a href='cart'>
                 <Image src={logo} style={{
                   width: "50px",

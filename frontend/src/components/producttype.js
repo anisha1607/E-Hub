@@ -16,7 +16,7 @@ function producttype() {
           <Col sm={4}>
           </Col>
           <Col sm={8}>
-            <h5 style={{ "textAlign": "justify" }}>A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC) with a screen and alphanumeric keyboard. Laptops typically have a clam shell form factor with the screen mounted on the inside of the upper lid and the keyboard on the inside of the lower lid, although 2-in-1 PCs with a detachable keyboard are often marketed as laptops or as having a laptop mode.Laptops are folded shut for transportation, and thus are suitable for mobile use.[1] They are so named because they can be practically placed on a person's lap when being used. </h5>
+            <h5 style={{ "textAlign": "justify" }}>A laptop, laptop computer, or notebook computer is a small, portable personal computer (PC) with a screen and alphanumeric keyboard. Laptops typically have a clam shell form factor with the screen mounted on the inside of the upper lid and the keyboard on the inside of the lower lid, although 2-in-1 PCs with a detachable keyboard are often marketed as laptops or as having a laptop mode.Laptops are folded shut for transportation, and thus are suitable for mobile use.They are so named because they can be practically placed on a person's lap when being used. </h5>
           </Col>
           <Col sm={4}>
             <h1 style={{ "textAlign": "left" }}></h1>
