@@ -7,12 +7,9 @@ import icon from '../images/icon.png'
 import axios from 'axios';
 //import {useNavigate } from 'react-router-dom';
 
-import {useNavigate } from "react-router-dom";
-
 const createHistory = require("history").createBrowserHistory;
 
 const Login = ({setLoginUser}) => {
-  const navigate = useNavigate();
   const history = createHistory();
   const [user,setUser] = useState({
     email:"",
@@ -31,7 +28,7 @@ const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
         alert(res.data.message)
-        if(res.data.message!=="Password didn't match"){
+        if(res.data.message!=="Password didn't match" && res.data.message!=="User not registered"){
           setLoginUser(res.data.user)
           history.push("/");
           let pathUrl = window.location.href;

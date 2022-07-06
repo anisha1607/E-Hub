@@ -9,13 +9,22 @@ import "./carousel.css";
 import axios from "axios";
 
 
+const createHistory = require("history").createBrowserHistory;
+
 const CarouselSlider = () =>{
     const [data1,setData]=useState();
-    // axios.post("http://localhost:9002/homecarousel",{})
-    //   .then(res=>{
-    //     setData(res.data,[]);
-    //     alert(res.data[0].id);
-    //   })
+    const history = createHistory();
+    function clickMe(item){
+      // console.log(item['item'].name);
+      // alert(item['item'].name);
+      localStorage.setItem("productClicked",JSON.stringify(item['item']));
+      history.push("product");
+      let pathUrl = window.location.href;
+      window.location.href = pathUrl;
+    }
+    
+    //const clickMe = value => alert(value.name);
+
     const sendPostRequest = async () => {
         try {
             const resp = await axios.post("http://localhost:9002/homecarousel",{});
@@ -85,7 +94,8 @@ const CarouselSlider = () =>{
                     <Card.Text>
                     <div className="product-actions">
                       <h3>&#x20b9;{price}</h3>
-                      <Button variant="warning" href="product">View Product</Button>
+                      <Button variant="warning" onClick={()=>clickMe({item})}>View Product</Button>
+                      {/* <Button variant="warning" href="product">View Product</Button> */}
                     </div>
                     </Card.Text>
                   </Card.Body>
