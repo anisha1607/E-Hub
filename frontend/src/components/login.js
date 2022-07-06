@@ -29,14 +29,14 @@ const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
         alert(res.data.message)
-        //setUser(res.data.user)
-        //navigate('/');
-        // navigate("/home");
+        // console.log(res.data);
         if(res.data.message!=="Password didn't match"){
-          setLoginUser(res.data.user)
+          // setLoginUser(res.data.user)
+          localStorage.setItem("user", JSON.stringify(res.data.user));
           history.push("/");
           let pathUrl = window.location.href;
           window.location.href = pathUrl;
+          console.log(history)
         }
     })
 }
