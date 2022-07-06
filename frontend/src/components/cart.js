@@ -13,12 +13,12 @@ import { Button } from 'react-bootstrap';
 
 function cart() {
   return (
-    <div  style={{ background: "#eee"}}>
+    <div  style={{ backgroundColor: "#eee"}}>
 
     <Navbar />
 
     <div style={{ marginTop: "6%",marginBottom: "1%" }}>
-      <div className="container mt-5 p-3 rounded cart" style={{ background: "#fff" }}>
+      <div className="container mt-5 p-3 rounded cart" style={{ backgroundColor: "#fff" }}>
         <div className="row no-gutters">
           <div className="col-md-8">
 
