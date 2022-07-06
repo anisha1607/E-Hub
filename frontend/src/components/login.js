@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const createHistory = require("history").createBrowserHistory;
 
-const Login = ({setLoginUser}) => {
+const Login = () => {
   const history = createHistory();
   const [user,setUser] = useState({
     email:"",
