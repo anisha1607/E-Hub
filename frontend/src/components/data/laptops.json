@@ -1,0 +1,50 @@
+[
+    {
+        "id": "9507779N",
+        "name": "Hp Pavilion X360 11Th Gen" ,
+        "brand": "Hp",
+        "price": "86,538",
+        "colour": "Silver",
+        "screenSize": "14 inches",
+        "resolution": "1920 x 1080 pixels",
+        "refreshRate": "60Hz",
+        "weight": "1 kg 520 g",
+        "image": "https://m.media-amazon.com/images/I/71NYNZlAtmL._SX679_.jpg"
+      },
+      {
+        "id": "92601102",
+        "name": "Apple MacBook Pro" ,
+        "brand": "Apple",
+        "price": "1,28,712",
+        "colour": "Space Grey",
+        "screenSize": "13.3 inches",
+        "resolution": "3024 x 1964 pixels",
+        "refreshRate": "60Hz",
+        "weight": "1.4 kg",
+        "image": "https://m.media-amazon.com/images/I/61L5QgPvgqL._SX679_.jpg"
+      },
+      {
+        "id": "9465450R",
+        "name": "Acer Aspire 5 A515-57G" ,
+        "brand": "Acer",
+        "price": "81,999",
+        "colour": "Steel Grey",
+        "screenSize": "15.6 inches",
+        "resolution": "1920 x 1080 pixels",
+        "refreshRate": "60Hz",
+        "weight": "1.77 kg",
+        "image": "https://m.media-amazon.com/images/I/71p6zdJSmpL._SX679_.jpg"
+      },
+      {
+        "id": "95004531",
+        "name": "Lenovo Ideapad Gaming 3" ,
+        "brand": "Lenovo",
+        "price": "1,12,990",
+        "colour": "Shadow Black",
+        "screenSize": "15.6 inches",
+        "resolution": "1920 x 1080 pixels",
+        "refreshRate": "120Hz",
+        "weight": "2.25 kg",
+        "image": "https://m.media-amazon.com/images/I/71--IQUHVwL._SX679_.jpg"
+      }
+]

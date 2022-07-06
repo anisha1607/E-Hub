@@ -25,7 +25,7 @@ function footer() {
                 <h5 className="text" style={{"color": "white"}}><b>My E-Hub</b></h5>
                 <ul className="list-unstyled">
                     <li><a href="user" style={{"color":"darkgray","textDecoration": "none"}}>My Profile</a></li>
-                    <li><a href="cart" style={{"color":"darkgray","textecDecoration": "none"}}>My Cart</a></li>
+                    <li><a href="cart" style={{"color":"darkgray","textDecoration": "none"}}>My Cart</a></li>
                 </ul>
             </div>
 

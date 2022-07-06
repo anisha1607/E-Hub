@@ -15,8 +15,6 @@ const CarouselSlider = () =>{
     const [data1,setData]=useState();
     const history = createHistory();
     function clickMe(item){
-      // console.log(item['item'].name);
-      // alert(item['item'].name);
       localStorage.setItem("productClicked",JSON.stringify(item['item']));
       history.push("product");
       let pathUrl = window.location.href;
@@ -105,9 +103,6 @@ const CarouselSlider = () =>{
           })}
         </Slider>
       </div>
-    //   <div>
-
-    //   </div>
     );
 }
 

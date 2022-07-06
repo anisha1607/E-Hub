@@ -23,17 +23,12 @@ function navbarLogged() {
               navbarScroll
             >
               <NavDropdown title="Products" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="producttype">Mobile Phones</NavDropdown.Item>
-                <NavDropdown.Item href="producttype">Tablets</NavDropdown.Item>
-                <NavDropdown.Item href="producttype">Laptop</NavDropdown.Item>
+              <NavDropdown.Item href="mobiles">Mobile Phones</NavDropdown.Item>
+                <NavDropdown.Item href="tvs">Televisions</NavDropdown.Item>
+                <NavDropdown.Item href="laptops">Laptops</NavDropdown.Item>
               </NavDropdown>
-
               <Nav.Link href="aboutus">About Us</Nav.Link>
-
             </Nav>
-
-
-
             <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
               <FormControl
                 type="search"

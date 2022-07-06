@@ -4,7 +4,6 @@ import Footer from './footer'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './userProfile.css';
-import userProfile from './userProfile';
 import axios from 'axios';
 
 const createHistory = require("history").createBrowserHistory;
