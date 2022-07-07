@@ -54,6 +54,7 @@ function SearchBar({ placeholder, data }) {
 
   return (
     <>
+    <div>
     <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
     <FormControl
       type="search"
@@ -65,14 +66,15 @@ function SearchBar({ placeholder, data }) {
     />
     <Button variant="outline-light" style={{ marginRight: "10px !important"}} >Search</Button>
     </Form>
+    </div>
     {filteredData.length != 0 && (
         <div className="dataResult">
           {filteredData.map((item) => {
-            const { id, name, price, image } = item;
+            const { id, name} = item;
             return (
                 <div key={id}>
               <a className="dataItem" target="_blank">
-                <button onClick={()=>clickMe({item})}>{name}</button>
+                <button style={{ border : "none",backgroundColor : "Transparent"}}onClick={()=>clickMe({item})}>{name}</button>
               </a>
               </div>
             );

@@ -3,16 +3,8 @@
     display: flex;
   }
   
-  .search input {
-    background-color: white;
-    border: 0;
-    border-radius: 2px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 18px;
-    padding: 15px;
-    height: 30px;
-    width: 300px;
+  .search{
+    position: absolute;
   }
   
   .searchIcon {
@@ -31,11 +23,13 @@
   }
   
   .dataResult {
-    margin-top: 5px;
-    width: 300px;
-    height: 200px;
+    margin-top: 25vh;
+    margin-left: 14.2vw;
+    width: 45vw;
+    height: 20vh;
+    position: absolute;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     overflow: hidden;
     overflow-y: auto;
   }
@@ -49,7 +43,7 @@
     height: 50px;
     display: flex;
     align-items: center;
-    color: black;
+    /* color: black; */
   }
   
   .dataItem p {

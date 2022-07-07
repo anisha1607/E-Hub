@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../src/cart.jpg'
 import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
 import './navbar.css'
+import Search from "./search2";
+import data from  './data/products.json';
 
 
 function navbarLogged() {
@@ -29,7 +31,9 @@ function navbarLogged() {
               </NavDropdown>
               <Nav.Link href="aboutus">About Us</Nav.Link>
             </Nav>
-            <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
+
+            <Search placeholder="Enter a Product" data={data}/>
+            {/* <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
               <FormControl
                 type="search"
                 placeholder="Search"
@@ -37,12 +41,12 @@ function navbarLogged() {
                 aria-label="Search"
               />
               <Button variant="outline-light" style={{ marginRight: "10px !important"}}>Search</Button>
-            </Form>
+            </Form> */}
 
            
             <Nav>
             
-            <NavDropdown title="User" id="navbarScrollingDropdown" style={{ marginTop: "5px"}}>
+            <NavDropdown title="User" id="navbarScrollingDropdown" style={{ marginTop: "5px", marginLeft:"78px"}}>
                 <NavDropdown.Item href="/user">User Details</NavDropdown.Item>
                 <NavDropdown.Item href="/" onClick={logout} >Logout</NavDropdown.Item>
             </NavDropdown>

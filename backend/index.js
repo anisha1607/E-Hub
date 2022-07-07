@@ -175,19 +175,19 @@ app.post("/search", (req, res)=> {
     })
 })
 
-app.post("/search1", (req, res)=> {
-    const name=req.body
-    Product.findOne({name: name}, (err, product) => {
-        if(!err){
-            res.send(product);
-            console.log(product);
-        }
-        else{
-            res.send("Error")
-            console.log(err);
-        }
-    })
-})
+// app.post("/search1", (req, res)=> {
+//     const name=req.body
+//     Product.findOne({name: name}, (err, product) => {
+//         if(!err){
+//             res.send(product);
+//             console.log(product);
+//         }
+//         else{
+//             res.send("Error")
+//             console.log(err);
+//         }
+//     })
+// })
 
 
 
