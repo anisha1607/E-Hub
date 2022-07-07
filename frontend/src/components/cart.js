@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './navbar'
+import Navbar from './navbarLogged'
 import Footer from './footer'
 import { Button } from 'react-bootstrap';
 

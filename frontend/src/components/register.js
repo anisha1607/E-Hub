@@ -22,7 +22,6 @@ function Register({setLoginUser}){
   const urlSubmit = (event) => {
     event.preventDefault();
   }
-
   const handleChange = e => {
     const { name, value } = e.target
     setUser({
@@ -30,10 +29,12 @@ function Register({setLoginUser}){
       [name]: value
     })
   }
-
   const register = () => {
     const { name, email, password, confirmPassword, phone} = user
-    if (name && email && password && (password === confirmPassword) && (phone!=="")) {
+    if(password !== confirmPassword){
+      alert("Please enter the same password")
+    }
+    else if (name && email && password && (phone!=="")) {
       axios.post("http://localhost:9002/register", user)
         .then(res => {
           alert(res.data.message)
