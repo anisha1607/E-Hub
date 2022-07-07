@@ -13,6 +13,8 @@ import HomeLogged from './components/homeLogged'
 import TvsRange from './components/TvsRange'
 import LaptopRange from './components/LaptopRange'
 import MobileRange from './components/MobileRange'
+import Search from "./components/searchBar";
+import data from  './components/data/products.json';
 // import {useState} from 'react'
 
 // localStorage.setItem("user", "");
@@ -52,6 +54,7 @@ function App() {
           <Route path="tvs" element={ <TvsRange user={user}/> } />
           <Route path="laptops" element={ <LaptopRange user={user}/> } />
           <Route path="mobiles" element={ <MobileRange user={user}/> } />
+          <Route path="search" element={<Search placeholder="Enter a Product" data={data}/>} />
         </Routes>
       </Router>
     </div>

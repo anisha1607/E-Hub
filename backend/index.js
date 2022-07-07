@@ -46,7 +46,7 @@ app.post("/login", (req, res)=> {
     const { email, password} = req.body
     User.findOne({ email: email}, (err, user) => {
         if(user){
-            if(bcrypt.compare(password, user.password) ) {
+            if(bcrypt.compareSync(password, user.password) ) {
                 res.send({message: "Login Successfull", user: user})
             } else {
                 res.send({ message: "Password didn't match"})
@@ -121,6 +121,31 @@ app.post("/homecarousel", (req, res)=> {
         }
         else{
             console.log("product not found");
+        }
+    })
+})
+
+app.post("/search", (req, res)=> {
+    Product.find(req,(err,product) =>{
+        if(!err){
+            res.send(product);
+        }
+        else{
+            console.log("product not found");
+        }
+    })
+})
+
+app.post("/search1", (req, res)=> {
+    const name=req.body
+    Product.findOne({name: name}, (err, product) => {
+        if(!err){
+            res.send(product);
+            console.log(product);
+        }
+        else{
+            res.send("Error")
+            console.log(err);
         }
     })
 })
