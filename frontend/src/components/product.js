@@ -5,21 +5,43 @@ import NavbarLogged from './navbarLogged'
 import { Button, Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
+import axios from "axios"
 function product(props) {
-    const getProductClickedFromLocalStorage = () =>{
-        try{
-            return JSON.parse(localStorage.getItem('productClicked')||'');
+    const getProductClickedFromLocalStorage = () => {
+        try {
+            return JSON.parse(localStorage.getItem('productClicked') || '');
         }
-        catch(err){
+        catch (err) {
             return "productNotClicked";
         }
     }
-    const productClicked=getProductClickedFromLocalStorage();
-    if(props.user){
+    const productClicked = getProductClickedFromLocalStorage();
+    const getUserFromLocalStorage = () => {
+        try {
+            return JSON.parse(localStorage.getItem('user') || '');
+        } catch (error) {
+            return null;
+        }
+      }
+      
+    const user = getUserFromLocalStorage();
+    function clickMe() {
+        const id = productClicked.id;
+        if(user){
+        axios.post("http://localhost:9002/cart",{id:user._id,item_id:id})
+        .then(res => {
+          alert(res.data.message)
+        })
+        }
+        else{
+            alert("Please login to add items to cart");
+        }
+    }
+    if (props.user) {
         return (
             <div>
                 <NavbarLogged />
-                <Container style={{marginTop:"6%"}}>
+                <Container style={{ marginTop: "6%" }}>
                     <Row style={{ "marginBottom": "2%" }}>
                         <Col sm={8}>
                             <h1 style={{ "textAlign": "left" }}>{productClicked.name}</h1><br></br>
@@ -35,17 +57,17 @@ function product(props) {
                                 </ul>
                             </h5>
                         </Col>
-                        <Col sm={4} style={{marginTop:"3%"}}>
+                        <Col sm={4} style={{ marginTop: "3%" }}>
                             <h1 style={{ "textAlign": "left" }}></h1>
-                            <center><Image src={productClicked.image} style={{width:"75%",height:"75%"}} class="rounded mx-auto d-block" alt="Online image"></Image></center>
+                            <center><Image src={productClicked.image} style={{ width: "75%", height: "75%" }} class="rounded mx-auto d-block" alt="Online image"></Image></center>
                         </Col>
                     </Row>
                     <Row>
                         <Col sm={8} >
-                        <center><Button href='/cart'>Add to Cart</Button></center>
+                            <center><Button onClick={() => clickMe()}>Add to Cart</Button></center>
                         </Col>
                         <Col sm={4} style={{ "marginTop": "6%" }}>
-                            
+
                         </Col>
                     </Row>
                 </Container>
@@ -56,7 +78,7 @@ function product(props) {
     return (
         <div>
             <Navbar />
-            <Container style={{marginTop:"6%"}}>
+            <Container style={{ marginTop: "6%" }}>
                 <Row style={{ "marginBottom": "2%" }}>
                     <Col sm={8}>
                         <h1 style={{ "textAlign": "left" }}>{productClicked.name}</h1><br></br>
@@ -72,24 +94,24 @@ function product(props) {
                             </ul>
                         </h5>
                     </Col>
-                    <Col sm={4} style={{marginTop:"3%"}}>
+                    <Col sm={4} style={{ marginTop: "3%" }}>
                         <h1 style={{ "textAlign": "left" }}></h1>
-                        <center><Image src={productClicked.image} style={{width:"75%",height:"75%"}} class="rounded mx-auto d-block" alt="Online image"></Image></center>
+                        <center><Image src={productClicked.image} style={{ width: "75%", height: "75%" }} class="rounded mx-auto d-block" alt="Online image"></Image></center>
                     </Col>
                 </Row>
                 <Row>
                     <Col sm={8} >
-                    <center><Button href='/cart'>Add to Cart</Button></center>
+                        <center><Button onClick={() => clickMe()}>Add to Cart</Button></center>
                     </Col>
                     <Col sm={4} style={{ "marginTop": "6%" }}>
-                        
+
                     </Col>
                 </Row>
             </Container>
             <Footer />
         </div>
     )
-    
+
 }
 
 export default product

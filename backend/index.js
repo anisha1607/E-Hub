@@ -38,15 +38,22 @@ const productSchema = new mongoose.Schema({
     image: String
 })
 
+const cartSchema = new mongoose.Schema({
+    id: String,
+    item_id: [String],
+    item_quantity: [Number]
+})
+
 const User = new mongoose.model("User", userSchema)
 const Product = new mongoose.model("Product", productSchema)
+const Cart = new mongoose.model("Cart", cartSchema)
 
 //Routes
 app.post("/login", (req, res)=> {
     const { email, password} = req.body
     User.findOne({ email: email}, (err, user) => {
         if(user){
-            if(bcrypt.compareSync(password, user.password) ) {
+            if(bcrypt.compareSync(password, user.password)) {
                 res.send({message: "Login Successfull", user: user})
             } else {
                 res.send({ message: "Password didn't match"})
@@ -84,6 +91,8 @@ app.post("/register", (req, res)=> {
     })
 }) 
 
+
+
 app.post("/useredit", (req, res)=> {
     const { name, email,phone,password} = req.body
     User.findOne({email: email}, (err, user) => {
@@ -106,11 +115,41 @@ app.post("/useredit", (req, res)=> {
             
         })
     })
-    // User.findOneAndRemove({email: email}, (err, user) => {
-    //     if(!err){
-    //         console.log("record deleted");
-    //     }
-    // })
+
+    app.post("/cart", (req, res)=> {
+        const { id, item_id} = req.body
+        const items_id=[];
+        items_id.push(item_id);
+        const items_quantity=[];
+        items_quantity.push(1);
+        Cart.findOne({id: id}, (err, cart) => {
+            if(!cart){
+                const cart = new Cart({
+                   id,
+                   items_id,
+                   items_quantity
+                })
+                cart.save(). then( cart =>{
+                    res.send( { message: "Successfully added products to cart!"})
+                })
+            }
+            else{
+                var i=cart.item_id.indexOf(item_id);
+                if(i!=-1){
+                    cart.id=id;
+                    cart.item_quantity[i]=cart.item_quantity[i]+1;
+                }
+                else{
+                    cart.id=id;
+                    cart.item_id.push(item_id);
+                    cart.item_quantity.push(1);
+                }
+                cart.save(). then( cart =>{
+                    res.send( { message: "Successfully added products to cart!"})
+                })
+            }
+        })
+    })
 
 
 app.post("/homecarousel", (req, res)=> {
