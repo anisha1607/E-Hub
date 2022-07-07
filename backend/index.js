@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
+import bcrypt from 'bcryptjs'
 
 //C:\Users\SESA673971\AppData\Local\MongoDBCompass
 
@@ -45,7 +46,7 @@ app.post("/login", (req, res)=> {
     const { email, password} = req.body
     User.findOne({ email: email}, (err, user) => {
         if(user){
-            if(password === user.password ) {
+            if(bcrypt.compare(password, user.password) ) {
                 res.send({message: "Login Successfull", user: user})
             } else {
                 res.send({ message: "Password didn't match"})
@@ -69,13 +70,16 @@ app.post("/register", (req, res)=> {
                 password,
                 phone
             })
-            user.save(err => {
-                if(err) {
-                    res.send(err)
-                } else {
+
+            bcrypt.genSalt(10, (err,salt) =>{
+                bcrypt.hash(user.password, salt, (err,hash) =>{
+                    if (err) throw err;
+                    user.password = hash;
+                user.save(). then( user =>{
                     res.send( { message: "Successfully Registered, Please login now." })
-                }
+                })
             })
+        })
         }
     })
 }) 
@@ -83,28 +87,31 @@ app.post("/register", (req, res)=> {
 app.post("/useredit", (req, res)=> {
     const { name, email,phone,password} = req.body
     User.findOne({email: email}, (err, user) => {
-        if(!err){
-            user.name=name;
-            user.phone=phone;
-            user.password=password;
-            user.save(err => {
-                if(err) {
-                    res.send(err)
-                } else {
-                    res.send( { message: "Successfully Updated details!", user: user})
-                }
-            })
-        }
-        else{
-            console.log(" user not found");
-        }
+            if(!err){
+                bcrypt.genSalt(10, (err,salt) =>{
+                    bcrypt.hash(password, salt, (err,hash) =>{
+                        if (err) throw err;
+                        user.name=name;
+                        user.phone=phone;
+                        user.password = hash;
+                        user.save(). then( user =>{
+                            res.send( { message: "Successfully Updated details!", user: user})
+                        })
+                    })
+                })
+            }
+            else{
+                throw err;
+            }
+            
+        })
     })
     // User.findOneAndRemove({email: email}, (err, user) => {
     //     if(!err){
     //         console.log("record deleted");
     //     }
     // })
-})
+
 
 app.post("/homecarousel", (req, res)=> {
     Product.find(req,(err,product) =>{

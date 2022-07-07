@@ -37,8 +37,8 @@ function Register({setLoginUser}){
       axios.post("http://localhost:9002/register", user)
         .then(res => {
           alert(res.data.message)
-            setLoginUser(res.data.user)
-            history.push("/");
+            //setLoginUser(res.data.user)
+            history.push("/login");
             let pathUrl = window.location.href;
             window.location.href = pathUrl;
         })
