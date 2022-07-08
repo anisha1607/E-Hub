@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../src/cart.jpg'
 import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
 import './navbar.css'
+import Search from "./search2";
+import data from  './data/products.json';
 
 
 function navbar() {
@@ -27,17 +29,17 @@ function navbar() {
 
             </Nav>
 
+            <Search placeholder="Enter a Product" data={data}/>
 
-
-            <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
+            {/* <Form className="d-flex" style={{ marginRight: "4px", width: "430px !important" }}>
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2 input-mysize"
                 aria-label="Search"
               />
-              <Button variant="outline-light" style={{ marginRight: "10px !important"}}>Search</Button>
-            </Form>
+              <Button variant="outline-light" style={{ marginRight: "10px !important"}} >Search</Button>
+            </Form> */}
 
             <Button className="login" variant="light" href='/login' style={{ color: "#0dcaf0"}}> Login / Sign Up</Button>
 
