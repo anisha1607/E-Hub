@@ -77,7 +77,6 @@ app.post("/register", (req, res)=> {
                 password,
                 phone
             })
-
             bcrypt.genSalt(10, (err,salt) =>{
                 bcrypt.hash(user.password, salt, (err,hash) =>{
                     if (err) throw err;
