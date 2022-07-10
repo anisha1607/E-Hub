@@ -32,10 +32,10 @@ function footer() {
             <div className="col-md-2 mb-md-0 mb-3">
                 <h5 className="text" style={{"color": "white"}}><b>Contact Us</b></h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!" style={{"color":"darkgray","textDecoration": "none"}}>Facebook</a></li>
-                    <li><a href="#!" style={{"color":"darkgray","textDecoration": "none"}}>Instagram</a></li>
-                    <li><a href="#!" style={{"color":"darkgray","textDecoration": "none"}}>Twitter</a></li>
-                    <li><a href="#!" style={{"color":"darkgray","textDecoration": "none"}}>Gmail</a></li> */
+                    <li><a href="/" style={{"color":"darkgray","textDecoration": "none"}}>Facebook</a></li>
+                    <li><a href="/" style={{"color":"darkgray","textDecoration": "none"}}>Instagram</a></li>
+                    <li><a href="/" style={{"color":"darkgray","textDecoration": "none"}}>Twitter</a></li>
+                    <li><a href="/" style={{"color":"darkgray","textDecoration": "none"}}>Gmail</a></li> */
                 </ul>
             </div>
         </div>

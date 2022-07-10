@@ -39,6 +39,21 @@ function SearchBar({ placeholder, data }) {
     window.location.href = pathUrl;
   }
   
+  function submitMe(item){
+    localStorage.setItem("productSearched",JSON.stringify(item));
+    history.push("producttype");
+    let pathUrl = window.location.href;
+    window.location.href = pathUrl;
+    // console.log(filteredData)
+    // history.push({
+    //   pathname: 'producttype',
+    //   state: filteredData,
+    // });
+    // let pathUrl = window.location.href;
+    // window.location.href = pathUrl;
+
+  }
+
   //const clickMe = value => alert(value.name);
 
   const sendPostRequest = async () => {
@@ -64,7 +79,7 @@ function SearchBar({ placeholder, data }) {
       value={wordEntered}
       onChange={handleFilter}
     />
-    <Button variant="outline-light" style={{ marginRight: "10px !important"}} >Search</Button>
+    <Button variant="outline-light" style={{ marginRight: "10px !important"}} onClick={()=>submitMe(filteredData)}>Search</Button>
     </Form>
     </div>
     {filteredData.length != 0 && (
@@ -74,7 +89,7 @@ function SearchBar({ placeholder, data }) {
             return (
                 <div key={id}>
               <a className="dataItem" target="_blank">
-                <button style={{ border : "none",backgroundColor : "Transparent"}}onClick={()=>clickMe({item})}>{name}</button>
+                <button style={{ border : "none",backgroundColor : "Transparent"}} onClick={()=>clickMe({item})}>{name}</button>
               </a>
               </div>
             );
