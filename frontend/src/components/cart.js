@@ -10,7 +10,9 @@ import axios from "axios"
 // function decrement() {
 //   document.getElementById('demoInput').stepDown();
 // }
-function cart() {
+function Cart() {
+  // const [total,setTotal] = useState(0)
+  var total=0;
   const getUserFromLocalStorage = () => {
     try {
       return JSON.parse(localStorage.getItem('user') || '');
@@ -59,9 +61,10 @@ function cart() {
   for(var i=0;i<cart.item_id.length;i++){
     for(var j=0;j<products.length;j++){
       if(products[j].id==cart.item_id[i]){
-         data.push({id:products[j].id,name:products[j].name,price:products[j].price,image:products[j].image,quantity:cart.item_quantity[i]});
+         data.push({id:products[j].id,name:products[j].name,price:(parseInt(products[j].price)*cart.item_quantity[i]),image:products[j].image,quantity:cart.item_quantity[i]});
          //alert(products[j].name)
          //break;
+         total+=(parseInt(products[j].price)*cart.item_quantity[i]);
       }
     }
   }
@@ -171,9 +174,9 @@ function cart() {
                 <div className="col-md-6"><label className="credit-card-label">CVV</label><input type="text" className="form-control credit-inputs" placeholder="342" /></div>
               </div>
               <hr className="line" style={{ borderBottom: "1px solid rgb(102,102,221)" }} />
-              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Subtotal</span><span>$3000.00</span></div>
-              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Shipping</span><span>$20.00</span></div>
-              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button className="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span style={{ marginRight: "5px" }}>$3020.00 </span><span>Checkout <i className="fa fa-long-arrow-right ml-1"></i></span></button></div>
+              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Subtotal</span><span>Rs. {total}</span></div>
+              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Shipping</span><span>Rs. 20</span></div>
+              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Total</span><span>Rs. {total+20}</span></div><button className="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span style={{ marginRight: "5px" }}>Rs. {total+20}</span><span>Checkout <i className="fa fa-long-arrow-right ml-1"></i></span></button></div>
           </div>
         </div>
       </div>
@@ -183,4 +186,4 @@ function cart() {
   );
 }
 
-export default cart
+export default Cart

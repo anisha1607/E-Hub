@@ -3,7 +3,7 @@ import './App.css';
 import Home from './components/home'
 import Login from './components/Login'
 import Register from './components/Register'
-import Cart from './components/cart'
+import Cart from './components/Cart'
 import Producttype from './components/ProductType'
 import Product from './components/product'
 import AboutUs from './components/aboutus'
