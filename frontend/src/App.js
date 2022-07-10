@@ -4,7 +4,7 @@ import Home from './components/home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Cart from './components/cart'
-import Producttype from './components/producttype'
+import Producttype from './components/ProductType'
 import Product from './components/product'
 import AboutUs from './components/aboutus'
 import User from './components/userProfile'
@@ -13,6 +13,7 @@ import HomeLogged from './components/homeLogged'
 import TvsRange from './components/TvsRange'
 import LaptopRange from './components/LaptopRange'
 import MobileRange from './components/MobileRange'
+import data from './components/data/products.json'
 // import {useState} from 'react'
 
 // localStorage.setItem("user", "");
@@ -44,7 +45,7 @@ function App() {
           <Route path="register" element={ <Register/> } />
           <Route path="cart" element={ <Cart/> } />
           <Route path="login" element={ (user) ? <HomeLogged user={user.name}/> : <Login/> }></Route>
-          <Route path="producttype" element={ <Producttype user={user}/>} />
+          <Route path="producttype" element={ <Producttype/>} />
           <Route path="product" element={ <Product user={user}/>} />
           <Route path="aboutus" element={ <AboutUs/>} />
           <Route path="user" element={ (user) ? <User user={user}/> : <Home/> } />

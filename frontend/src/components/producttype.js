@@ -1,15 +1,39 @@
 import React from 'react'
 import Navbar from './navbar'
+import { useLocation } from 'react-router-dom';
 import Footer from './footer'
 import { Button, Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import data from  './data/products.json';
 import laptop from '../images/laptop.jfif'
-function producttype() {
+
+const createHistory = require("history").createBrowserHistory;
+
+function ProductType() {
+  const history = createHistory();
+  // const location = useLocation();
+  // console.log(props.location.state)
+  const getProductSearchedFromLocalStorage = () => {
+    try {
+        return JSON.parse(localStorage.getItem('productSearched') || '');
+    }
+    catch (err) {
+        return "productNotSearched";
+    }
+}
+const productSearched = getProductSearchedFromLocalStorage();
+
+  function clickMe(item){
+    localStorage.setItem("productClicked",JSON.stringify(item['item']));
+    history.push("product");
+    let pathUrl = window.location.href;
+    window.location.href = pathUrl;
+  }
+
   return (
-    <div>
+    <div style={{marginTop: "5%"}}>
       <Navbar />
-      <Container style={{marginTop:"6%"}}>
-        <Row style={{ "marginBottom": "2%" }}>
+        {/* <Row style={{ "marginBottom": "2%" }}>
           <Col sm={8}>
             <h1 style={{ "textAlign": "left" }}>Laptops</h1><br></br>
           </Col>
@@ -22,69 +46,48 @@ function producttype() {
             <h1 style={{ "textAlign": "left" }}></h1>
             <center><Image src={laptop} class="rounded mx-auto d-block" alt="Online image"></Image></center>
           </Col>
-        </Row>
-      </Container>
-      <CardGroup>
-        <Card onClick={''} style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
-          <Card.Img variant="top" src={laptop} />
-          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-            <Card.Title>Brand Name</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="text-center"> 
-              <Button href="product" variant="primary">Show Product</Button>
-              {/* <Button variant="secondary">Add to cart</Button> */}
-            </div>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
-          <Card.Img variant="top" src={laptop} />
-          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-            <Card.Title>Brand Name</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="text-center"> 
-              <Button href="product" variant="primary">Show Product</Button>
-              {/* <Button variant="secondary">Add to cart</Button> */}
-            </div>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
-          <Card.Img variant="top" src={laptop} />
-          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-            <Card.Title>Brand Name</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="text-center"> 
-              <Button href="product" variant="primary">Show Product</Button>
-              {/* <Button variant="secondary">Add to cart</Button> */}
-            </div>
-          </Card.Body>
-        </Card>
-        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
-          <Card.Img variant="top" src={laptop} />
-          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-            <Card.Title>Brand Name</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="text-center"> 
-              <Button href="product" variant="primary">Show Product</Button>
-              {/* <Button variant="secondary">Add to cart</Button> */}
-            </div>
-          </Card.Body>
-        </Card>
-      </CardGroup>
-      <Footer />
+        </Row> */}
+     
+      {/* <CardGroup> */}
+      {/* {productSearch.length != 0 && ( */}
+        <div>
+          {productSearched.map((item) => {
+            const {id, name, price, image,brand} = item;
+            console.log(item)
+            return (
+                <div key={id}>
+                <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+                <Row className='g-0'>
+                <Col md='4'>
+                  <Card.Img style={{height: "400px"}} variant="top" src={image} />
+                </Col>
+                <Col md='4'>
+                  <Card.Body style={{ width:"800px",height: "140px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
+                    <Card.Title><h2>{name}</h2></Card.Title>
+                    <Card.Text>
+                    <h3>{brand}</h3>
+                    <br></br>
+                    <div className="product-actions">
+                      <h3>&#x20b9;{price}</h3>
+        
+                      {/* <Button variant="warning" href="product">View Product</Button> */}
+                    </div>
+                    <br></br>
+                    <Button variant="warning" onClick={()=>clickMe({item})}>View Product</Button>
+                    </Card.Text>
+                  </Card.Body>
+                </Col>
+                </Row>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
+        <Footer />
+      {/* </CardGroup> */}
     </div>
+    
   )
 }
 
-export default producttype
+export default ProductType
