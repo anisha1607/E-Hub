@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./SearchBar.css";
 import { Image, Container, Form, Button, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
-import SearchIcon from "@material-ui/icons/Search";
-import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 
 const createHistory = require("history").createBrowserHistory;

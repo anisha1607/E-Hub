@@ -150,6 +150,12 @@ app.post("/useredit", (req, res)=> {
         })
     })
 
+    app.post("/cartdisplay", (req, res)=> {
+        const {id} = req.body
+        Cart.findOne({id: id}, (err, cart) => {
+                res.send( { message:"sent item", cartItems: cart})
+        })
+    })
 
 app.post("/homecarousel", (req, res)=> {
     Product.find(req,(err,product) =>{
