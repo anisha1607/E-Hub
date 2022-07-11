@@ -10,7 +10,11 @@ import axios from "axios"
 // function decrement() {
 //   document.getElementById('demoInput').stepDown();
 // }
+
+const createHistory = require("history").createBrowserHistory;
+
 function Cart() {
+  const history = createHistory();
   // const [total,setTotal] = useState(0)
   var total=0;
   const getUserFromLocalStorage = () => {
@@ -44,6 +48,7 @@ function Cart() {
   }
   else {
     alert("Please login to display items to cart");
+    history.push("login")
     // return <div></div>
   }
   const getCartFromLocalStorage = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Image, Container, Row, Col } from 'react-bootstrap'
-import icon from '../images/icon.png'
+import icon from '../images/Logo.png'
 import Footer from './footer';
 import axios from "axios"
 //import { useNavigate } from "react-router-dom"

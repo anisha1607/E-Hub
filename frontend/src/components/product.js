@@ -84,7 +84,7 @@ function product(props) {
                         <h1 style={{ "textAlign": "left" }}>{productClicked.name}</h1><br></br>
                         <h5 style={{ "textAlign": "justify" }}>
                             <ul>
-                                <li><h5>Price : {productClicked.price}</h5></li>
+                                <li><h5>Price : &#x20b9;{productClicked.price}</h5></li>
                                 <li><h5>Brand  : {productClicked.brand}</h5></li>
                                 <li><h5>Colour : {productClicked.colour}</h5></li>
                                 <li><h5>screen Size : {productClicked.screenSize}</h5></li>
