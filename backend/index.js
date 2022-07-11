@@ -50,7 +50,7 @@ const orderSchema = new mongoose.Schema({
     item_quantity: Number,
     date: {
         type: Date,
-        default: new Date()
+        default: new Date("<YYYY-mm-dd>")
     }
 })
 
@@ -231,8 +231,7 @@ app.post("/order", (req, res)=> {
                 itemid,
                 itemquantity
             })
-            order.save(). then( () =>{
-            })
+            order.save()
         }
         res.send( { message: "Successfully Placed Order!" })
     }
