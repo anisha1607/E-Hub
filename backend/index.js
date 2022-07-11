@@ -225,7 +225,6 @@ app.post("/order", (req, res)=> {
     const user = new User({
         id, item_id, item_quantity,date
     })
-    
 })
 
 
