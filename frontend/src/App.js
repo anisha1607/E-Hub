@@ -5,7 +5,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Cart from './components/Cart'
 import Producttype from './components/ProductType'
-import Product from './components/product'
+import Product from './components/Product'
 import AboutUs from './components/aboutus'
 import User from './components/userProfile'
 import UserEdit from './components/userProfileEdit'
@@ -45,9 +45,9 @@ function App() {
           <Route path="register" element={ <Register/> } />
           <Route path="cart" element={ <Cart/> } />
           <Route path="login" element={ (user) ? <HomeLogged user={user.name}/> : <Login/> }></Route>
-          <Route path="producttype" element={ <Producttype/>} />
+          <Route path="producttype" element={ <Producttype user={user}/>} />
           <Route path="product" element={ <Product user={user}/>} />
-          <Route path="aboutus" element={ <AboutUs/>} />
+          <Route path="aboutus" element={ <AboutUs user={user}/>} />
           <Route path="user" element={ (user) ? <User user={user}/> : <Home/> } />
           <Route path="useredit" element={ <UserEdit user={user}/>} />
           <Route path="tvs" element={ <TvsRange user={user}/> } />
