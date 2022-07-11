@@ -50,7 +50,7 @@ const orderSchema = new mongoose.Schema({
     item_quantity: Number,
     date: {
         type: Date,
-        default: new Date("<YYYY-mm-dd>")
+        default: new Date()
     }
 })
 
@@ -180,6 +180,18 @@ app.post("/homecarousel", (req, res)=> {
     })
 })
 
+app.post("/orderhistory", (req, res)=> {
+    Order.findAll({id: id},(err,order) =>{
+        if(!err){
+            res.send(order);
+        }
+        else{
+            console.log("order not found");
+        }
+    })
+})
+
+
 app.post("/search", (req, res)=> {
     Product.find(req,(err,product) =>{
         if(!err){
@@ -219,25 +231,22 @@ app.post("/cartdeleteitem", (req, res)=> {
     })
 })
 
+app.post("/usercartdelete", (req, res)=> {
+    const {id} = req.body
+    Cart.deleteOne({id: id}, (err, cart) => {
+        
+    })
+})
+
 app.post("/order", (req, res)=> {
     const { id, item_id, item_quantity} = req.body
-    if(id){
-        console.log(id);
-        for (let i = 0; i < item_id.length; i++) {
-            var itemid=item_id[i];
-            var itemquantity=item_quantity[i]
-            const order = new Order({
-                id,
-                itemid,
-                itemquantity
-            })
-            order.save()
-        }
-        res.send( { message: "Successfully Placed Order!" })
-    }
-    else{
-        res.send({message: "No order to place"})
-    }
+    const date = new Date();
+    const order = new Order({
+        id, item_id, item_quantity,date
+    })
+    order.save(). then( user =>{
+        res.send( { message: "Successfully Registered, Please login now." })
+    })
 })
 
 
