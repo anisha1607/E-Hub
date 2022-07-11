@@ -219,6 +219,28 @@ app.post("/cartdeleteitem", (req, res)=> {
     })
 })
 
+app.post("/order", (req, res)=> {
+    const { id, item_id, item_quantity} = req.body
+    if(id){
+        console.log(id);
+        for (let i = 0; i < item_id.length; i++) {
+            var itemid=item_id[i];
+            var itemquantity=item_quantity[i]
+            const order = new Order({
+                id,
+                itemid,
+                itemquantity
+            })
+            order.save(). then( () =>{
+            })
+        }
+        res.send( { message: "Successfully Placed Order!" })
+    }
+    else{
+        res.send({message: "No order to place"})
+    }
+})
+
 
 app.listen(9002,() => {
     console.log("BE started at port 9002")

@@ -4,12 +4,6 @@ import Footer from './footer'
 import { Button } from 'react-bootstrap';
 import axios from "axios"
 
-// function increment() {
-//   document.getElementById('demoInput').stepUp();
-// }
-// function decrement() {
-//   document.getElementById('demoInput').stepDown();
-// }
 function Cart() {
   // const [total,setTotal] = useState(0)
   var total=0;
@@ -40,6 +34,8 @@ function Cart() {
       })
   }
 
+  
+
 
   if (user) {
     axios.post("http://localhost:9002/cartdisplay", { id: user._id })
@@ -58,6 +54,8 @@ function Cart() {
     alert("Please login to display items to cart");
     // return <div></div>
   }
+
+
   const getCartFromLocalStorage = () => {
     try {
       return JSON.parse(localStorage.getItem('cart') || '');
@@ -65,10 +63,25 @@ function Cart() {
       return null;
     }
   }
+
   const cart = getCartFromLocalStorage();
+
+  function checkoutItem(){
+    // alert(item['item'].id);
+    const cart = getCartFromLocalStorage();
+    alert(cart.id)
+    axios.post("http://localhost:9002/order", { cart:cart})
+      .then(res => {
+        localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
+      })
+
+    // localStorage.setItem('cart','');
+  }
   // alert(cart.item_id.length);
   // alert(products.length);
   //return <div>{cart.id}</div>
+
+
   const data=[]
   for(var i=0;i<cart.item_id.length;i++){
     for(var j=0;j<products.length;j++){
@@ -90,6 +103,9 @@ function Cart() {
     )
   }
   //alert(data.length);
+
+
+
   return (
     <div  style={{ backgroundColor: "#eee"}}>
 
@@ -188,7 +204,8 @@ function Cart() {
               <hr className="line" style={{ borderBottom: "1px solid rgb(102,102,221)" }} />
               <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Subtotal</span><span>Rs. {total}</span></div>
               <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Shipping</span><span>Rs. 20</span></div>
-              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Total</span><span>Rs. {total+20}</span></div><button className="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span style={{ marginRight: "5px" }}>Rs. {total+20}</span><span>Checkout <i className="fa fa-long-arrow-right ml-1"></i></span></button></div>
+              <div className="d-flex justify-content-between information" style={{ marginBottom: "5px" }}><span>Total</span><span>Rs. {total+20}</span></div><button onClick={()=>checkoutItem()} className="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span style={{ marginRight: "5px" }}>Rs. {total+20}</span>
+              <span>Checkout <i className="fa fa-long-arrow-right ml-1"></i></span></button></div>
           </div>
         </div>
       </div>
