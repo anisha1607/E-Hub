@@ -194,7 +194,19 @@ app.post("/search", (req, res)=> {
 //     })
 // })
 
-
+app.post("/cartdeleteitem", (req, res)=> {
+    const { id, item_id} = req.body
+    Cart.findOne({id: id}, (err, cart) => {
+        if(cart){
+            var i=cart.item_id.indexOf(item_id);
+            cart.item_id.splice(i,1);
+            cart.item_quantity.splice(i,1);
+            cart.save(). then( cart =>{
+                res.send( { message: "Successfully added products to cart!"})
+            })
+        }
+    })
+})
 
 
 app.listen(9002,() => {
