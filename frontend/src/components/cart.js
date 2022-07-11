@@ -13,8 +13,7 @@ import axios from "axios"
 function Cart() {
   // const [total,setTotal] = useState(0)
   var total=0;
-
-  
+  // window.location.reload();  
   const getUserFromLocalStorage = () => {
     try {
       return JSON.parse(localStorage.getItem('user') || '');
@@ -37,6 +36,8 @@ function Cart() {
     axios.post("http://localhost:9002/cartdeleteitem", { id: user._id ,item_id:item['item'].id})
       .then(res => {
         // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
+
+        window.location.reload();
       })
   }
 

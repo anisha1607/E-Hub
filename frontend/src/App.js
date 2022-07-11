@@ -43,7 +43,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={ (user) ? <HomeLogged /> : <Home/> } />
           <Route path="register" element={ <Register/> } />
-          <Route path="cart" element={ <Cart/> } />
+          <Route path="cart" element={<Cart/> }/>
           <Route path="login" element={ (user) ? <HomeLogged user={user.name}/> : <Login/> }></Route>
           <Route path="producttype" element={ <Producttype/>} />
           <Route path="product" element={ <Product user={user}/>} />
