@@ -221,13 +221,11 @@ app.post("/cartdeleteitem", (req, res)=> {
 
 app.post("/order", (req, res)=> {
     const { id, item_id, item_quantity} = req.body
-    const date = new Date();
-    const order = new Order({
+    const date =new Date()
+    const user = new User({
         id, item_id, item_quantity,date
     })
-    order.save(). then( user =>{
-        res.send( { message: "Successfully Registered, Please login now." })
-    })
+    
 })
 
 

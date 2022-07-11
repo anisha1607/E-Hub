@@ -87,7 +87,7 @@ function SearchBar({ placeholder, data }) {
             return (
                 <div key={id}>
               <a className="dataItem" target="_blank">
-                <button style={{ border : "none",backgroundColor : "Transparent"}} onClick={()=>clickMe({item})}>{name}</button>
+                <button style={{ border : "none", backgroundColor : "Transparent"}} onClick={()=>clickMe({item})}>{name}</button>
               </a>
               </div>
             );
