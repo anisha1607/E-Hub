@@ -180,6 +180,18 @@ app.post("/homecarousel", (req, res)=> {
     })
 })
 
+app.post("/orderhistory", (req, res)=> {
+    Order.findAll({id: id},(err,order) =>{
+        if(!err){
+            res.send(order);
+        }
+        else{
+            console.log("order not found");
+        }
+    })
+})
+
+
 app.post("/search", (req, res)=> {
     Product.find(req,(err,product) =>{
         if(!err){
@@ -219,11 +231,21 @@ app.post("/cartdeleteitem", (req, res)=> {
     })
 })
 
+app.post("/usercartdelete", (req, res)=> {
+    const {id} = req.body
+    Cart.deleteOne({id: id}, (err, cart) => {
+        
+    })
+})
+
 app.post("/order", (req, res)=> {
     const { id, item_id, item_quantity} = req.body
-    const date =new Date()
-    const user = new User({
+    const date = new Date();
+    const order = new Order({
         id, item_id, item_quantity,date
+    })
+    order.save(). then( user =>{
+        res.send( { message: "Successfully Registered, Please login now." })
     })
 })
 

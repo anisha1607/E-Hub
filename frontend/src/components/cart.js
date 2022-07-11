@@ -5,6 +5,10 @@ import { Button } from 'react-bootstrap';
 import axios from "axios"
 
 function Cart() {
+
+  setTimeout(function(){
+    window.location.reload(1);
+  },2000)
   // const [total,setTotal] = useState(0)
   var total = 0;
   // window.location.reload();  
