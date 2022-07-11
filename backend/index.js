@@ -44,9 +44,20 @@ const cartSchema = new mongoose.Schema({
     item_quantity: [Number]
 })
 
+const orderSchema = new mongoose.Schema({
+    id: String,
+    item_id: String,
+    item_quantity: Number,
+    date: {
+        type: Date,
+        default: new Date()
+    }
+})
+
 const User = new mongoose.model("User", userSchema)
 const Product = new mongoose.model("Product", productSchema)
 const Cart = new mongoose.model("Cart", cartSchema)
+const Order = new mongoose.model("Order", orderSchema)
 
 //Routes
 app.post("/login", (req, res)=> {
