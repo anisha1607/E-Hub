@@ -17,6 +17,8 @@ function Cart() {
   const history = createHistory();
   // const [total,setTotal] = useState(0)
   var total=0;
+
+  
   const getUserFromLocalStorage = () => {
     try {
       return JSON.parse(localStorage.getItem('user') || '');
@@ -33,6 +35,16 @@ function Cart() {
   }
   const user = getUserFromLocalStorage();
   const products = getProductsFromLocalStorage();
+
+  function clickMe(item){
+    alert(item['item'].id);
+    axios.post("http://localhost:9002/cartdeleteitem", { id: user._id ,item_id:item['item'].id})
+      .then(res => {
+        // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
+      })
+  }
+
+
   if (user) {
     axios.post("http://localhost:9002/cartdisplay", { id: user._id })
       .then(res => {
@@ -121,7 +133,7 @@ function Cart() {
                   <span className="d-block font-weight-bold">Rs {price}</span>
                 </div>
                 <div className="d-flex flex-row align-items-center">
-                  <i className="fa fa-trash-o ml-3" style={{ color: "red !important" }}></i>
+                  <i className="fa fa-trash-o ml-3" style={{ color: "red !important" }} onClick={()=>clickMe({item})}></i>
                 </div>
               </div>
             );
