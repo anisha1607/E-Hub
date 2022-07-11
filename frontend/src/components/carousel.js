@@ -33,6 +33,7 @@ const CarouselSlider = () =>{
         }
     };
     sendPostRequest();
+    localStorage.setItem("products",JSON.stringify(data));
     var settings = {
       dots: false,
       infinite: true,
