@@ -4,7 +4,17 @@ import Footer from './footer'
 import { Button } from 'react-bootstrap';
 import axios from "axios"
 
+// function increment() {
+//   document.getElementById('demoInput').stepUp();
+// }
+// function decrement() {
+//   document.getElementById('demoInput').stepDown();
+// }
+
+const createHistory = require("history").createBrowserHistory;
+
 function Cart() {
+  const history = createHistory();
   // const [total,setTotal] = useState(0)
   var total = 0;
   // window.location.reload();  
@@ -53,6 +63,7 @@ function Cart() {
   }
   else {
     alert("Please login to display items to cart");
+    history.push("login")
     // return <div></div>
   }
 
@@ -85,6 +96,8 @@ function Cart() {
 
     //localStorage.removeItem('cart');
 
+    history.push("ordersuccessful")
+
   }
   // alert(cart.item_id.length);
   // alert(products.length);
@@ -104,11 +117,36 @@ function Cart() {
   }
   if (data.length == 0) {
     return (
-      <div>
-        <h1>
-          No products in your cart
-        </h1>
-      </div>
+      <>
+      <Navbar />
+<div class="container-fluid  mt-100" style={{marginTop:"6%" , marginBottom:"1%"}}>
+				 <div class="row">
+				 
+					<div class="col-md-12">
+					
+							<div class="card">
+						<div class="card-header">
+						<h5>Cart</h5>
+						</div>
+						<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center">
+									<img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3" />
+									<h3><strong>Looks Like Your Cart is Empty</strong></h3>
+									<a href="/" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Back to Shopping</a>
+									
+								
+								</div>
+						</div>
+				</div>
+						
+					
+					</div>
+				 
+				 </div>
+				
+				</div>
+        <Footer />
+        </>
     )
   }
   //alert(data.length);

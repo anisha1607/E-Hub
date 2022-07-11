@@ -42,7 +42,7 @@ function footer() {
     </div>
 
     <div className="footer-copyright text-center py-3" style={{"backgroundColor": "black","color":"white"}}>© 2022 Copyright : 
-        <a href="https://se.com/" target="blank" style={{"color": "white","textDecoration": "none"}}> E-Hub.com</a>
+        <a href="/" target="blank" style={{"color": "white","textDecoration": "none"}}> E-Hub.com</a>
     </div>
     </>
   )

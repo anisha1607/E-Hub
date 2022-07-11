@@ -3,7 +3,7 @@ import { Button, Form, Image ,Container,Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer';
 //import './login.css'
-import icon from '../images/icon.png'
+import icon from '../images/Logo.png'
 import axios from 'axios';
 //import {useNavigate } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ const login = () => {
     <>
       <Container style={{ "margin": "1%" }}>
         <Row>
-          <Col lg={8} className="mw-80"><center><a href="/"><Image src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>
+          <Col lg={8} className="mw-80"><center><a href="/"><Image src={icon} style={{width:"100%"}} alt="Online image"></Image></a></center></Col>
           <Col lg={4}>
             <Form className="mb-6" onSubmit={urlSubmit}>
             <center><h2>Login</h2></center>
