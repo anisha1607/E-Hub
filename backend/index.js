@@ -47,7 +47,10 @@ const cartSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema({
     id: String,
     item_id: String,
-    item_quantity: Number,
+    item_quantity: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: new Date()
@@ -181,8 +184,10 @@ app.post("/homecarousel", (req, res)=> {
 })
 
 app.post("/orderhistory", (req, res)=> {
-    Order.findAll({id: id},(err,order) =>{
+    const {id} = req.body
+    Order.find({id: id},(err,order) =>{
         if(!err){
+            console.log(id)
             res.send(order);
         }
         else{

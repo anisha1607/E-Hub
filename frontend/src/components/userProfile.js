@@ -4,6 +4,7 @@ import Footer from './footer'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './userProfile.css';
+import Order from './order'
 
 function userProfile({ user }) {
   return (
@@ -84,6 +85,7 @@ function userProfile({ user }) {
             </div>
           </Card.Body>
         </Card>
+        <Order />
       </div>
       <Footer />
     </>
