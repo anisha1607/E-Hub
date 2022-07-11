@@ -33,7 +33,7 @@ const productSearched = getProductSearchedFromLocalStorage();
 
   if(props.user){
   return (
-    <div style={{marginTop: "5%"}}>
+    <div>
       <NavbarLogged />
         {/* <Row style={{ "marginBottom": "2%" }}>
           <Col sm={8}>
@@ -52,7 +52,7 @@ const productSearched = getProductSearchedFromLocalStorage();
      
       {/* <CardGroup> */}
       {/* {productSearch.length != 0 && ( */}
-        <div>
+        <div style={{marginTop: "6%"}}>
           {productSearched.map((item) => {
             const {id, name, price, image,brand} = item;
             console.log(item)
