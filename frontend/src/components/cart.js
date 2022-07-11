@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,Container,Row,Col } from 'react'
 import Navbar from './navbarLogged'
 import Footer from './footer'
 import { Button } from 'react-bootstrap';
@@ -8,6 +8,7 @@ function Cart() {
   // const [total,setTotal] = useState(0)
   var total = 0;
   // window.location.reload();  
+  const [dat, setData] = useState([]);
   const getUserFromLocalStorage = () => {
     try {
       return JSON.parse(localStorage.getItem('user') || '');
@@ -26,7 +27,7 @@ function Cart() {
   const products = getProductsFromLocalStorage();
 
   function clickMe(item) {
-    alert(item['item'].id);
+    alert("product removed");
     axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
       .then(res => {
         // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
@@ -70,12 +71,12 @@ function Cart() {
   function checkoutItem() {
     // alert(item['item'].id);
     const cart = getCartFromLocalStorage();
-    alert(cart.id)
-    for(var i=0;i<cart.item_id.length;i++){
-      axios.post("http://localhost:9002/order", {id:cart.id,item_id:cart.item_id[i],item_quantity:cart.item_quantity[i]})
-      .then(res => {
-        // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
-      })
+    alert("Successfully ordered")
+    for (var i = 0; i < cart.item_id.length; i++) {
+      axios.post("http://localhost:9002/order", { id: cart.id, item_id: cart.item_id[i], item_quantity: cart.item_quantity[i] })
+        .then(res => {
+          // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
+        })
     }
     // localStorage.setItem('cart','');
   }
@@ -88,7 +89,7 @@ function Cart() {
   for (var i = 0; i < cart.item_id.length; i++) {
     for (var j = 0; j < products.length; j++) {
       if (products[j].id == cart.item_id[i]) {
-        data.push({ id: products[j].id, name: products[j].name, price: (parseInt(products[j].price) * cart.item_quantity[i]), image: products[j].image, quantity: cart.item_quantity[i] });
+        data.push({ id: products[j].id, name: products[j].name, price: (parseInt(products[j].price) * cart.item_quantity[i]), image: products[j].image, quantity: cart.item_quantity[i], refreshRate: products[j].refreshRate, color: products[j].colour });
         //alert(products[j].name)
         //break;
         total += (parseInt(products[j].price) * cart.item_quantity[i]);
@@ -117,38 +118,44 @@ function Cart() {
         <div className="container mt-5 p-3 rounded cart" style={{ backgroundColor: "#fff" }}>
           <div className="row no-gutters">
             <div className="col-md-8">
-
-
               <div className="product-details mr-2" style={{ padding: "10px" }}>
                 <div className="d-flex flex-row align-items-center">
                   <span className="ml-2"> <a href='/'>
                     <Button variant='secondary'> &larr; Continue Shopping</Button></a></span></div>
                 <hr />
                 <h6 className="mb-0"> <b> Shopping cart </b> </h6>
-
                 <div className="d-flex justify-content-between"><span>You have {data.length} items in your cart</span></div>
-
                 <div style={{ backgroundColor: "#eee" }}>
                   {data.map((item) => {
-                    const { id, name, price, image, quantity } = item;
+                    const { id, name, price, image, quantity, refreshRate, color } = item;
                     return (
-                      <div key={id} className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                        <div className="d-flex flex-row"><img className="rounded fluid" src={image} width="40" />
-                          <div className="ml-2"><span className="font-weight-bold d-block"><b style={{ marginLeft: "5px" }}>{name}</b></span><span className="spec" style={{ marginLeft: "5px" }}>256GB, Navy Blue</span></div>
-                        </div>
-                        <div className="d-flex flex-row align-items-center">
-                          {/* <input id='demoInput' type='number' min='1' max='100' placeholder='1' /> */}
-                          {quantity}
-                          {/* <button onclick="increment()" style={{ marginRight: "2%", marginLeft: "2%" }}>+</button>
-            <button onclick="decrement()">-</button> */}
-                        </div>
-                        <div className="d-flex flex-row align-items-center">
-                          <span className="d-block font-weight-bold">Rs {price}</span>
-                        </div>
-                        <div className="d-flex flex-row align-items-center">
-                          <i className="fa fa-trash-o ml-3" style={{ color: "red !important" }} onClick={() => clickMe({ item })}></i>
-                        </div>
-                      </div>
+                                <div key={id} className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                                  <div className="d-flex flex-row"><img className="rounded fluid" src={image} width="40" />
+                                    <div className="ml-2"><span className="font-weight-bold d-block"><b style={{ marginLeft: "5px" }}>{name}</b></span><span className="spec" style={{ marginLeft: "5px" }}>{refreshRate}, {color}</span></div>
+                                  </div>
+                                  <div className="d-flex flex-row align-items-center">
+                                    {/* <input id='demoInput' type='number' min='1' max='100' placeholder='1' /> */}
+                                    {quantity}
+                                    {/* <button onclick="increment()" style={{ marginRight: "2%", marginLeft: "2%" }}>+</button>
+                      <button onclick="decrement()">-</button> */}
+                                  </div>
+                                  <div className="d-flex flex-row align-items-center">
+                                    <span className="d-block font-weight-bold">Rs {price}</span>
+                                  </div>
+                                  <div className="d-flex flex-row align-items-center">
+                                    <i className="fa fa-trash-o ml-3" style={{ color: "red !important" }} onClick={() => clickMe({ item })}></i>
+                                  </div>
+                                </div>
+                      // <div key={id} className="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                      //   <Container  >
+                      //   <Row>
+                      //     <Col xs={2}><img className="rounded fluid" src={image} width="40" /></Col>
+                      //     <Col xs={5}><span className="font-weight-bold d-block"><b style={{ marginLeft: "5px" }}>{name}</b></span><span className="spec" style={{ marginLeft: "5px" }}>{refreshRate}, {color}</span></Col>
+                      //     <Col xs={4}>Rs {price}</Col>
+                      //     <Col xs={1}><i className="fa fa-trash-o ml-3" style={{ color: "red !important" }} onClick={() => clickMe({ item })}></i></Col>
+                      //   </Row>
+                      // </Container>
+                      // </div>
                     );
                   })}
                 </div>
