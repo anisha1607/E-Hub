@@ -127,11 +127,11 @@ app.post("/useredit", (req, res)=> {
     })
 
     app.post("/cart", (req, res)=> {
-        const { id, item_id} = req.body
+        const { id, item_id, item_quantity} = req.body
         const items_id=[];
         items_id.push(item_id);
         const items_quantity=[];
-        items_quantity.push(1);
+        items_quantity.push(item_quantity);
         Cart.findOne({id: id}, (err, cart) => {
             if(!cart){
                 const cart = new Cart({
@@ -147,12 +147,12 @@ app.post("/useredit", (req, res)=> {
                 var i=cart.item_id.indexOf(item_id);
                 if(i!=-1){
                     cart.id=id;
-                    cart.item_quantity[i]=cart.item_quantity[i]+1;
+                    cart.item_quantity[i]=cart.item_quantity[i]+item_quantity;
                 }
                 else{
                     cart.id=id;
                     cart.item_id.push(item_id);
-                    cart.item_quantity.push(1);
+                    cart.item_quantity.push(item_quantity);
                 }
                 cart.save(). then( cart =>{
                     res.send( { message: "Successfully added products to cart!"})
