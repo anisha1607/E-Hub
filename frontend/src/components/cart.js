@@ -96,8 +96,8 @@ function Cart() {
       .then(res => {
         // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
       })
-      
-    localStorage.removeItem('cart');
+
+    //localStorage.removeItem('cart');
 
     history.push("ordersuccessful")
 
