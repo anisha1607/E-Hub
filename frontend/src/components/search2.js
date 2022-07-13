@@ -58,6 +58,7 @@ function SearchBar({ placeholder, data }) {
       try {
           const resp = await axios.post("http://localhost:9002/search",{});
           setData(resp.data,[]);
+          console.log(resp.data);
       } catch (err) {
           // Handle Error Here
           console.error(err);

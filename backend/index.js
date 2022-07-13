@@ -65,7 +65,7 @@ app.post("/login", (req, res)=> {
     User.findOne({ email: email}, (err, user) => {
         if(user){
             if(bcrypt.compareSync(password, user.password) ) {
-                res.send({message: "Login Successfull", user: user})
+                res.send({message: "Login Successful", user: user})
             } else {
                 res.send({ message: "Password didn't match"})
             }
