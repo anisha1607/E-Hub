@@ -47,7 +47,10 @@ const cartSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema({
     id: String,
     item_id: String,
-    item_quantity: Number,
+    item_quantity: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: new Date()
@@ -128,12 +131,16 @@ app.post("/useredit", (req, res)=> {
 
     app.post("/cart", (req, res)=> {
         const { id, item_id, item_quantity} = req.body
+        // console.log(id);
+        // console.log(item_id);
+        // console.log(item_quantity);
         const items_id=[];
         items_id.push(item_id);
         const items_quantity=[];
         items_quantity.push(item_quantity);
         Cart.findOne({id: id}, (err, cart) => {
             if(!cart){
+                //console.log("not there");
                 const cart = new Cart({
                    id,
                    items_id,
@@ -144,17 +151,27 @@ app.post("/useredit", (req, res)=> {
                 })
             }
             else{
-                var i=cart.item_id.indexOf(item_id);
-                if(i!=-1){
-                    cart.id=id;
-                    cart.item_quantity[i]=cart.item_quantity[i]+item_quantity;
+                console.log("item there");
+                if(item_id!="1"){
+                    console.log("hi");
+                    var i=cart.item_id.indexOf(item_id);
+                    if(i!=-1){
+                        cart.id=id;
+                        cart.item_quantity[i]=cart.item_quantity[i]+item_quantity;
+                    }
+                    else{
+                        cart.id=id;
+                        cart.item_id.push(item_id);
+                        cart.item_quantity.push(item_quantity);
+                    }
                 }
                 else{
                     cart.id=id;
-                    cart.item_id.push(item_id);
-                    cart.item_quantity.push(item_quantity);
+                    cart.item_id=cart.item_id
+                    cart.item_quantity=cart.item_quantity
                 }
                 cart.save(). then( cart =>{
+                    //console.log("saved");
                     res.send( { message: "Successfully added products to cart!"})
                 })
             }
@@ -181,8 +198,10 @@ app.post("/homecarousel", (req, res)=> {
 })
 
 app.post("/orderhistory", (req, res)=> {
-    Order.findAll({id: id},(err,order) =>{
+    const {id} = req.body
+    Order.find({id: id},(err,order) =>{
         if(!err){
+            console.log(id)
             res.send(order);
         }
         else{
@@ -203,20 +222,6 @@ app.post("/search", (req, res)=> {
     })
 })
 
-// app.post("/search1", (req, res)=> {
-//     const name=req.body
-//     Product.findOne({name: name}, (err, product) => {
-//         if(!err){
-//             res.send(product);
-//             console.log(product);
-//         }
-//         else{
-//             res.send("Error")
-//             console.log(err);
-//         }
-//     })
-// })
-
 app.post("/cartdeleteitem", (req, res)=> {
     const { id, item_id} = req.body
     Cart.findOne({id: id}, (err, cart) => {
@@ -225,7 +230,7 @@ app.post("/cartdeleteitem", (req, res)=> {
             cart.item_id.splice(i,1);
             cart.item_quantity.splice(i,1);
             cart.save(). then( cart =>{
-                res.send( { message: "Successfully added products to cart!"})
+                res.send( { message: "Successfully deleted products to cart!"})
             })
         }
     })

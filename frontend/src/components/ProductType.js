@@ -16,16 +16,17 @@ function ProductType(props) {
   // console.log(props.location.state)
   const getProductSearchedFromLocalStorage = () => {
     try {
-        return JSON.parse(localStorage.getItem('productSearched') || '');
+      return JSON.parse(localStorage.getItem('productSearched') || '');
     }
     catch (err) {
-        return "productNotSearched";
+      return "productNotSearched";
     }
-}
-const productSearched = getProductSearchedFromLocalStorage();
+  }
 
-  function clickMe(item){
-    localStorage.setItem("productClicked",JSON.stringify(item['item']));
+  const productSearched = getProductSearchedFromLocalStorage();
+
+  function clickMe(item) {
+    localStorage.setItem("productClicked", JSON.stringify(item['item']));
     history.push("product");
     let pathUrl = window.location.href;
     window.location.href = pathUrl;
@@ -92,9 +93,9 @@ const productSearched = getProductSearchedFromLocalStorage();
   )
   }
   return (
-    <div style={{marginTop: "5%"}}>
+    <div style={{ marginTop: "5%" }}>
       <Navbar />
-        {/* <Row style={{ "marginBottom": "2%" }}>
+      {/* <Row style={{ "marginBottom": "2%" }}>
           <Col sm={8}>
             <h1 style={{ "textAlign": "left" }}>Laptops</h1><br></br>
           </Col>
@@ -108,46 +109,46 @@ const productSearched = getProductSearchedFromLocalStorage();
             <center><Image src={laptop} class="rounded mx-auto d-block" alt="Online image"></Image></center>
           </Col>
         </Row> */}
-     
+
       {/* <CardGroup> */}
       {/* {productSearch.length != 0 && ( */}
-        <div>
-          {productSearched.map((item) => {
-            const {id, name, price, image,brand} = item;
-            console.log(item)
-            return (
-                <div key={id}>
-                <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
+      <div>
+        {productSearched.map((item) => {
+          const { id, name, price, image, brand } = item;
+          console.log(item)
+          return (
+            <div key={id}>
+              <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
                 <Row className='g-0'>
-                <Col md='4'>
-                  <Card.Img style={{height: "400px"}} variant="top" src={image} />
-                </Col>
-                <Col md='4'>
-                  <Card.Body style={{ width:"800px",height: "140px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
-                    <Card.Title><h2>{name}</h2></Card.Title>
-                    <Card.Text>
-                    <h3>{brand}</h3>
-                    <br></br>
-                    <div className="product-actions">
-                      <h3>&#x20b9;{price}</h3>
-        
-                      {/* <Button variant="warning" href="product">View Product</Button> */}
-                    </div>
-                    <br></br>
-                    <Button variant="warning" onClick={()=>clickMe({item})}>View Product</Button>
-                    </Card.Text>
-                  </Card.Body>
-                </Col>
+                  <Col md='4'>
+                    <Card.Img style={{ height: "400px" }} variant="top" src={image} />
+                  </Col>
+                  <Col md='4'>
+                    <Card.Body style={{ width: "800px", height: "140px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <Card.Title><h2>{name}</h2></Card.Title>
+                      <Card.Text>
+                        <h3>{brand}</h3>
+                        <br></br>
+                        <div className="product-actions">
+                          <h3>&#x20b9;{price}</h3>
+
+                          {/* <Button variant="warning" href="product">View Product</Button> */}
+                        </div>
+                        <br></br>
+                        <Button variant="warning" onClick={() => clickMe({ item })}>View Product</Button>
+                      </Card.Text>
+                    </Card.Body>
+                  </Col>
                 </Row>
-                </Card>
-              </div>
-            );
-          })}
-        </div>
-        <Footer />
+              </Card>
+            </div>
+          );
+        })}
+      </div>
+      <Footer />
       {/* </CardGroup> */}
     </div>
-    
+
   )
 }
 

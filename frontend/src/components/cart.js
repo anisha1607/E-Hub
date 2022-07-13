@@ -14,6 +14,9 @@ import axios from "axios"
 const createHistory = require("history").createBrowserHistory;
 
 function Cart() {
+  setTimeout(function(){
+    window.location.reload(1)
+  },2000);
   const history = createHistory();
   // const [total,setTotal] = useState(0)
   var total = 0;
@@ -37,11 +40,9 @@ function Cart() {
 
   function clickMe(item) {
     alert(item['item'].id);
-    axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
+      axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
       .then(res => {
         localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
-
-        window.location.reload();
       })
   }
 
@@ -93,8 +94,13 @@ function Cart() {
       .then(res => {
         // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
       })
-      
-    localStorage.removeItem('cart');
+
+      axios.post("http://localhost:9002/cart",{id:user._id,item_id:"",item_quantity:1})
+        .then(res => {
+          //alert(res.data.message)
+        })
+
+    //localStorage.removeItem('cart');
 
     history.push("ordersuccessful")
 

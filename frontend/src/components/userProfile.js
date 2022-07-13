@@ -4,8 +4,10 @@ import Footer from './footer'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './userProfile.css';
+import Order from './order'
 
 function userProfile({ user }) {
+  
   return (
     <>
       <Navbar />
@@ -71,21 +73,11 @@ function userProfile({ user }) {
             </Col>
           </Row>
         </Card>
-        <Card style={{ width: "inherit", margin: "10px", padding: "10px", borderRadius: "16px", display: "flex" }}>
-          <Card.Body style={{ height: "200px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-            <Card.Title>Order History</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="text-center">
-              <Button href="product" variant="primary">Show Product</Button>
-              {/* <Button variant="secondary">Add to cart</Button> */}
-            </div>
-          </Card.Body>
-        </Card>
+        <Order />
       </div>
+      <div>
       <Footer />
+      </div>
     </>
   )
 }
