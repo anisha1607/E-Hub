@@ -3,7 +3,7 @@ import { Button, Form, Image ,Container,Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer';
 //import './login.css'
-import icon from '../images/icon.png'
+import icon from '../images/Logo.png'
 import axios from 'axios';
 //import {useNavigate } from 'react-router-dom';
 
