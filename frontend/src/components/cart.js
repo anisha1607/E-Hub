@@ -40,11 +40,9 @@ function Cart() {
 
   function clickMe(item) {
     alert(item['item'].id);
-    axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
+      axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
       .then(res => {
         localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
-
-        window.location.reload();
       })
   }
 
@@ -96,6 +94,11 @@ function Cart() {
       .then(res => {
         // localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
       })
+
+      axios.post("http://localhost:9002/cart",{id:user._id,item_id:"",item_quantity:1})
+        .then(res => {
+          //alert(res.data.message)
+        })
 
     //localStorage.removeItem('cart');
 
