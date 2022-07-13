@@ -63,7 +63,7 @@ function Cart() {
       })
   }
   else {
-    alert("Please login to display items to cart");
+    // alert("Please login to display items to cart");
     history.push("login")
     // return <div></div>
   }
@@ -82,7 +82,7 @@ function Cart() {
   function checkoutItem() {
     // alert(item['item'].id);
     const cart = getCartFromLocalStorage();
-    alert(cart.id)
+    //alert(cart.id)
     for(var i=0;i<cart.item_id.length;i++){
       axios.post("http://localhost:9002/order", {id:cart.id,item_id:cart.item_id[i],item_quantity:cart.item_quantity[i]})
       .then(res => {
