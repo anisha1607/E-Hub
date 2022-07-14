@@ -5,6 +5,10 @@ import products from './data/products.json';
 import { Button, Container, Row, Col, Image, Card, CardGroup } from 'react-bootstrap'
 
 function Order() {
+    
+    setTimeout(function(){
+        window.location.reload(1)
+      },2000);
 
     const [data1,setData]= useState();
 
@@ -84,6 +88,18 @@ function Order() {
       }
     }
   }
+  data.reverse();
+//   for (var i = 0; i < orderHistory.length; i++) {
+//     for (var j = 0; j < products.length; j++) {
+//       if (products[j].id == orderHistory[i].item_id) {
+//         const dateArray = orderHistory[i].date.substring(0,10).split("-");
+//         const splitReverse = dateArray.reverse();
+//         const reverseDate = splitReverse.join("-");
+//         data.push({ date: reverseDate, id: orderHistory[i].id, name: products[j].name, price: (parseInt(products[j].price) * parseInt(orderHistory[i].item_quantity)),quantity: parseInt(orderHistory[i].item_quantity), image: products[j].image});
+//       }
+//     }
+//   }
+    //setData(data);
     return (
         <div style={{"marginTop":"1%"}}>
         <center><h1><b>Order History</b></h1></center>
@@ -97,7 +113,7 @@ function Order() {
                 <Col md='4'>
                   <Card.Img style={{height: "200px",width:"200px"}} variant="top" src={image} />
                 </Col>
-                <Col md='4'>
+                <Col style={{"marginTop":"1%"}} md='4'>
                   <Card.Body style={{ width:"800px",height: "140px",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
                     <Card.Title><h4><b>{name}</b></h4></Card.Title>
                     <Card.Text>
@@ -117,6 +133,7 @@ function Order() {
         
                       {/* <Button variant="warning" href="product">View Product</Button> */}
                     </div>
+                    
                     <br></br>
                     {/* <Button variant="warning" >View Product</Button> */}
                     </Card.Text>
