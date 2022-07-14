@@ -14,6 +14,7 @@ import TvsRange from './components/TvsRange'
 import LaptopRange from './components/LaptopRange'
 import MobileRange from './components/MobileRange'
 import OrderSuccess from './components/OrderSuccessful'
+import { ToastContainer, toast } from 'react-toastify';
 import data from './components/data/products.json'
 // import {useState} from 'react'
 

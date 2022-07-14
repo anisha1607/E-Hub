@@ -91,7 +91,7 @@ function LaptopRange(props) {
                                             <Card.Title>{name}</Card.Title>
                                             <Card.Text>
                                                 <div className="product-actions">
-                                                    <h3>&#x20b9;{price}</h3>
+                                                    <h4>&#x20b9;{price}</h4>
                                                     <Button variant="warning" onClick={() => clickMe({ item })}>View Product</Button>
                                                     {/* <Button variant="warning" href="product">View Product</Button> */}
                                                 </div>

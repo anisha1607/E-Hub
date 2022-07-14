@@ -3,6 +3,8 @@ import Navbar from './navbarLogged'
 import Footer from './footer'
 import { Button } from 'react-bootstrap';
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // function increment() {
 //   document.getElementById('demoInput').stepUp();
@@ -39,7 +41,7 @@ function Cart() {
   const products = getProductsFromLocalStorage();
 
   function clickMe(item) {
-    alert(item['item'].id);
+    alert("Item has been deleted from your cart");
       axios.post("http://localhost:9002/cartdeleteitem", { id: user._id, item_id: item['item'].id })
       .then(res => {
         localStorage.setItem("cart", JSON.stringify(res.data.cartItems));
@@ -63,7 +65,7 @@ function Cart() {
       })
   }
   else {
-    alert("Please login to display items to cart");
+    // toast("Please Login First");
     history.push("login")
     // return <div></div>
   }
@@ -82,7 +84,7 @@ function Cart() {
   function checkoutItem() {
     // alert(item['item'].id);
     const cart = getCartFromLocalStorage();
-    alert(cart.id)
+    // alert()
     for(var i=0;i<cart.item_id.length;i++){
       axios.post("http://localhost:9002/order", {id:cart.id,item_id:cart.item_id[i],item_quantity:cart.item_quantity[i]})
       .then(res => {
@@ -124,6 +126,7 @@ function Cart() {
   if (data.length == 0) {
     return (
       <>
+      <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
       <Navbar />
 <div class="container-fluid  mt-100" style={{marginTop:"6%" , marginBottom:"1%"}}>
 				 <div class="row">
@@ -161,7 +164,7 @@ function Cart() {
 
   return (
     <div style={{ backgroundColor: "#eee" }}>
-
+      <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
       <Navbar />
 
       <div style={{ marginTop: "6%", marginBottom: "1%" }}>

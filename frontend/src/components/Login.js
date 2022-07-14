@@ -3,8 +3,10 @@ import { Button, Form, Image ,Container,Row,Col} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer';
 //import './login.css'
-import icon from '../images/icon.png'
+import icon from '../images/Logo.png'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import {useNavigate } from 'react-router-dom';
 
 const createHistory = require("history").createBrowserHistory;
@@ -32,7 +34,7 @@ const Login = () => {
 const login = () => {
     axios.post("http://localhost:9002/login", user)
     .then(res => {
-        alert(res.data.message)
+        toast(res.data.message)
         // console.log(res.data);
         if(res.data.message!=="Password didn't match" && res.data.message!=="User not registered" ){
           // setLoginUser(res.data.user)
@@ -52,10 +54,11 @@ const login = () => {
 
   return (
     <>
+    <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
       <Container style={{ "margin": "1%" }}>
         <Row>
           <Col lg={8} className="mw-80"><center><a href="/"><Image src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>
-          <Col lg={4}>
+          <Col lg={4} >
             <Form className="mb-6" onSubmit={urlSubmit}>
             <center><h2>Login</h2></center>
             <Form.Group className="mb-3">

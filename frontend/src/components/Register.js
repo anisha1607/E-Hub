@@ -4,6 +4,8 @@ import { Button, Form, Image, Container, Row, Col } from 'react-bootstrap'
 import icon from '../images/Logo.png'
 import Footer from './footer';
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import { useNavigate } from "react-router-dom"
 
 const createHistory = require("history").createBrowserHistory;
@@ -32,25 +34,26 @@ function Register({setLoginUser}){
   const register = () => {
     const { name, email, password, confirmPassword, phone} = user
     if(password !== confirmPassword){
-      alert("Please enter the same password")
+      toast("Please Enter the Same Password")
     }
     else if (name && email && password && (phone!=="")) {
       axios.post("http://localhost:9002/register", user)
         .then(res => {
-          alert(res.data.message)
+          toast(res.data.message)
             //setLoginUser(res.data.user)
             history.push("/login");
             let pathUrl = window.location.href;
             window.location.href = pathUrl;
         })
     } else {
-      alert("invalid input")
+      toast("Invalid Input")
     }
 
   }
 
   return (
     <div>
+      <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
       <Container style={{ "margin": "1%" }}>
         <Row >
           <Col sm={8} className="mw-80"><center><a href="/"><Image style={{ "height": "100", "width": "auto" }} src={icon} class="rounded mx-auto d-block" alt="Online image"></Image></a></center></Col>

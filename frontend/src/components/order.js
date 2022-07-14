@@ -74,8 +74,8 @@ function Order() {
 
     // sendPostRequest();
   const data = []
-  for (var i = 0; i < orderHistory.length; i++) {
-    for (var j = 0; j < products.length; j++) {
+  for (var i = orderHistory.length-1; i >= 0; i--) {
+    for (var j = products.length-1; j >= 0; j--) {
       if (products[j].id == orderHistory[i].item_id) {
         const dateArray = orderHistory[i].date.substring(0,10).split("-");
         const splitReverse = dateArray.reverse();

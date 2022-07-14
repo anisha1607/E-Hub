@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import laptop from '../images/laptop.jfif'
 import axios from "axios"
 import "./Quantity.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Product(props) {
     const [value,setValue]=useState(1);
@@ -43,16 +45,17 @@ function Product(props) {
         if(user){
         axios.post("http://localhost:9002/cart",{id:user._id,item_id:id,item_quantity:value})
         .then(res => {
-          alert(res.data.message)
+          toast(res.data.message)
         })
         }
         else{
-            alert("Please login to add items to cart");
+            toast("Please login to add items to cart");
         }
     }
     if (props.user) {
         return (
             <div>
+                <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
                 <NavbarLogged />
                 <Container style={{ marginTop: "6%" }}>
                 <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
@@ -104,6 +107,7 @@ function Product(props) {
     }
     return (
         <div>
+            <ToastContainer position="top-center" hideProgressBar autoClose={3000}/>
             <Navbar />
             <Container style={{ marginTop: "6%" }}>
             <Card style={{ width: "inherit",margin:"10px",padding: "10px",borderRadius: "16px",display:"flex"}}>
